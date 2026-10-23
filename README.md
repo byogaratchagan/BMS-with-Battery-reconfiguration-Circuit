@@ -1,1 +1,1 @@
-# BMS-with-Battery-reconfiguration-Circuit
+# BMS-with-Battery-Reconfiguration-Circuit
