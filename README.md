@@ -22,6 +22,10 @@ Test Run Results
 | AC-side Wh (normalized) | 35.000 | 41.967 | Series saves 16.60% |
 | AC-side efficiency | 18.41% | 15.36% | Series (+19.91% rel.) |
 
+Applications:
+- In EV it can able to increase the efficiency in charging.
+- It can increase the efficiency in DC-AC conversion as it can replace the step up transformer and reduce the complexity of the DC-DC convertor used in Home Inverters.
+
 
 <img width="400" height="300" alt="bms_prototype" src="https://github.com/user-attachments/assets/fcec7162-6cf9-42ec-90e2-56072cfb7b05" />
 
