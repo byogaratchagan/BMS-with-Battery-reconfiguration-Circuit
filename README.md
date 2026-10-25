@@ -21,3 +21,10 @@ Test Run Results
 | DC-side efficiency | 57.54% | 48.75% | Series (+18.03% rel.) |
 | AC-side Wh (normalized) | 35.000 | 41.967 | Series saves 16.60% |
 | AC-side efficiency | 18.41% | 15.36% | Series (+19.91% rel.) |
+
+
+<img width="400" height="300" alt="bms_prototype" src="https://github.com/user-attachments/assets/fcec7162-6cf9-42ec-90e2-56072cfb7b05" />
+
+<img width="400" height="225" alt="bms_prototype_2" src="https://github.com/user-attachments/assets/f0ff1e48-983e-4594-8e72-3e4c9a6a33ed" />
+
+
