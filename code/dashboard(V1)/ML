@@ -1,0 +1,61 @@
+# Battery Health Classification Pipeline Walkthrough
+
+The machine learning pipeline for predicting battery health (GOOD, DEGRADING, DEAD) has been successfully implemented and evaluated.
+
+## Implementation Summary
+
+1. **Synthetic Data Generation**: 
+   - We generated a dataset of 10,000 samples simulating sensor readings: `Voltage`, `Current`, `Temperature`, `Internal Resistance`, `SOC`, `Cycle Count`, and `Capacity`.
+   - Missing data points were deliberately injected into the temperature feature to test preprocessing.
+
+2. **Preprocessing & Feature Engineering**:
+   - Handled missing values using median imputation.
+   - Scaled numerical features using `StandardScaler`.
+   - Engineered new features such as `Voltage_Drop_Rate`, `Resistance_Trend`, and `Power (W)` to help the models detect battery degradation patterns.
+
+3. **Model Training**:
+   - The dataset was split 80-20 for training and testing.
+   - We trained three models: `RandomForestClassifier`, `XGBClassifier`, and a scikit-learn `MLPClassifier` (Neural Network).
+
+## Validation Results
+
+The synthetic dataset contained distinct patterns that allowed all three models to achieve very high performance, achieving a **1.0 F1-Score** across all classes in our evaluation. This demonstrates the robustness of the feature selection and engineering logic.
+
+> [!NOTE]
+> Since this is a synthetically generated dataset with well-defined separation boundaries between GOOD, DEGRADING, and DEAD cells, a perfect score is expected. On real-world noisy data, you would likely see lower performance and could then tune the models further.
+
+## Visualizations
+
+### Confusion Matrices
+The models were able to perfectly classify each sample in the test set.
+
+![Confusion Matrices](file:///C:/Users/DIVYA/.gemini/antigravity/brain/ae498e56-2309-4491-8087-664c1f5f2346/confusion_matrices.png)
+
+### Model Performance Comparison
+All models achieved top performance across Accuracy, Precision, Recall, and F1 Score metrics.
+
+![Model Comparison](file:///C:/Users/DIVYA/.gemini/antigravity/brain/ae498e56-2309-4491-8087-664c1f5f2346/model_comparison.png)
+
+### Feature Importance (Random Forest)
+The Random Forest model identified that `Capacity`, `Cycle Count`, and the engineered `Resistance_Trend` were among the most critical features for determining the cell's health.
+
+![Feature Importances](file:///C:/Users/DIVYA/.gemini/antigravity/brain/ae498e56-2309-4491-8087-664c1f5f2346/feature_importances.png)
+
+## Real-time Prediction
+
+A real-time prediction demo was included in the script. When provided with an unlabeled array of sensor readings, the best performing model successfully outputted a predicted state along with class probabilities.
+
+```
+Input Sensor Data:
+Voltage (V)                      3.9
+Current (A)                      1.8
+Temperature (°C)                30.5
+Internal Resistance (mOhm)      25.0
+SOC (%)                         75.0
+Cycle Count                    400.0
+Capacity (mAh)                2600.0
+
+Predicted Health Status: **DEGRADING**
+```
+
+The full Python implementation can be found in [battery_health_ml.py](file:///c:/Users/DIVYA/Desktop/New%20folder/Anti%20Gravity/battery_health_ml.py).

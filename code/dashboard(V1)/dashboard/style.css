@@ -1,0 +1,1120 @@
+/*
+ * SCADA Industrial EV/ESS BMS Dashboard Stylesheet
+ * Balanced Single-Screen Cockpit with Enhanced Readability & Fill
+ * Supports Dark Theme (Default) and White/Light Theme
+ */
+
+:root {
+  --bg-dark: #0B1020;
+  --bg-card: rgba(15, 22, 42, 0.9);
+  --bg-card-hover: rgba(22, 32, 60, 0.95);
+  --bg-card-border: rgba(255, 255, 255, 0.1);
+  --bg-card-border-glow: rgba(0, 242, 254, 0.35);
+
+  --accent-blue: #00d2ff;
+  --accent-cyan: #00f2fe;
+  --accent-electric: #4facfe;
+  --accent-green: #00e676;
+  --accent-amber: #ffab00;
+  --accent-red: #ff1744;
+  --accent-purple: #9d4edd;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #cbd5e1;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.4);
+  --shadow-neon-cyan: 0 0 20px rgba(0, 242, 254, 0.2);
+  --shadow-neon-green: 0 0 20px rgba(0, 230, 118, 0.2);
+  --shadow-neon-red: 0 0 20px rgba(255, 23, 68, 0.2);
+
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --canvas-bg: rgba(0, 0, 0, 0.32);
+  --input-bg: rgba(15, 22, 42, 0.95);
+  --input-border: rgba(0, 242, 254, 0.35);
+  --ring-bg-stroke: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── White / Light Theme Variables ─── */
+body.light-theme {
+  --bg-dark: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-card-border: rgba(0, 0, 0, 0.1);
+  --bg-card-border-glow: rgba(2, 132, 199, 0.35);
+
+  --accent-blue: #0284c7;
+  --accent-cyan: #0284c7;
+  --accent-electric: #2563eb;
+  --accent-green: #059669;
+  --accent-amber: #d97706;
+  --accent-red: #dc2626;
+  --accent-purple: #7c3aed;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-neon-cyan: 0 4px 16px rgba(2, 132, 199, 0.14);
+  --shadow-neon-green: 0 4px 16px rgba(5, 150, 105, 0.14);
+  --shadow-neon-red: 0 4px 16px rgba(220, 38, 38, 0.14);
+
+  --canvas-bg: #f8fafc;
+  --input-bg: #ffffff;
+  --input-border: #cbd5e1;
+  --ring-bg-stroke: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Main Viewport Setup ─── */
+body.scada-theme {
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(at 10% 10%, rgba(0, 210, 255, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(157, 78, 221, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(0, 230, 118, 0.04) 0px, transparent 60%);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.scada-theme.light-theme {
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(at 10% 10%, rgba(2, 132, 199, 0.06) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(124, 58, 237, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(5, 150, 105, 0.03) 0px, transparent 60%);
+}
+
+.app-layout {
+  flex: 1;
+  min-height: 0;
+  max-width: 1720px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar for Tab Containers */
+.tab-content::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.tab-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.tab-content::-webkit-scrollbar-thumb {
+  background: var(--bg-card-border);
+  border-radius: 4px;
+}
+.tab-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* ─── Full Screen Diagnostic Overlays (Hidden by Default, Absolute Full-Screen When Active) ─── */
+.scada-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11, 16, 32, 0.94);
+  backdrop-filter: blur(20px);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+body.light-theme .scada-overlay {
+  background: rgba(241, 245, 249, 0.95);
+}
+
+.scada-overlay.active {
+  display: flex !important;
+}
+
+.overlay-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  padding: 36px 42px;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .overlay-card {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+.overlay-icon {
+  font-size: 3.5rem;
+  margin-bottom: 18px;
+}
+
+.overlay-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.overlay-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ─── Bottom-Right Floating Alerts Toast (Does NOT cover header buttons) ─── */
+.floating-alerts-drawer {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 9000;
+  width: 360px;
+  max-height: 45vh;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.alerts-drawer-header {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+}
+
+.clear-alerts-btn {
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-size: 0.74rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.clear-alerts-btn:hover {
+  background: var(--accent-cyan);
+  color: #0B1020;
+}
+
+.alerts-list { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; pointer-events: auto; }
+
+.alert-item {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-cyan);
+  border-left: 5px solid var(--accent-cyan);
+  color: var(--text-main);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.84rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
+  animation: slideInBottom 0.3s forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body.light-theme .alert-item {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.alert-warn { border-left-color: var(--accent-amber); border-color: rgba(255,171,0,0.5); }
+.alert-crit { border-left-color: var(--accent-red); border-color: rgba(255,23,68,0.5); }
+
+@keyframes slideInBottom {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ─── SCADA Header ─── */
+.scada-header {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-lg);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-neon-cyan);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.brand-group { display: flex; align-items: center; gap: 14px; }
+
+.scada-logo {
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-electric));
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: #0B1020;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+}
+
+body.light-theme .scada-logo {
+  color: #ffffff;
+  box-shadow: 0 3px 12px rgba(2, 132, 199, 0.35);
+}
+
+.scada-title {
+  font-size: 1.3rem; font-weight: 800; letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+body.light-theme .scada-title {
+  background: linear-gradient(90deg, #0f172a, #0284c7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.scada-subtitle { font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+.pack-badge { color: var(--accent-cyan); font-weight: 700; }
+
+.scada-controls { display: flex; align-items: center; gap: 10px; }
+
+.system-status-pill {
+  padding: 7px 16px; border-radius: 24px;
+  font-size: 0.8rem; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  color: var(--accent-cyan);
+}
+
+body.light-theme .system-status-pill {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
+.status-pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background-color: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.status-pulse.pulse-green { background-color: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); animation: pulse 1.5s infinite; }
+.status-pulse.pulse-blue { background-color: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); animation: pulse 1.5s infinite; }
+.status-pulse.pulse-amber { background-color: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); animation: pulse 2s infinite; }
+.status-pulse.pulse-red { background-color: var(--accent-red); box-shadow: 0 0 8px var(--accent-red); animation: pulse 1s infinite; }
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.scada-pill {
+  padding: 7px 16px; border-radius: 24px;
+  font-size: 0.8rem; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+}
+
+body.light-theme .scada-pill {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.09);
+}
+
+.scada-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--bg-card-border);
+  color: var(--text-main);
+  padding: 7px 16px; border-radius: 24px;
+  cursor: pointer; font-size: 0.8rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s ease;
+  font-family: var(--font-main);
+}
+
+.scada-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+body.light-theme .scada-btn {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-main);
+}
+
+body.light-theme .scada-btn:hover {
+  background: #f8fafc;
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.theme-toggle-btn {
+  background: rgba(0, 242, 254, 0.1);
+  border-color: rgba(0, 242, 254, 0.35);
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(0, 242, 254, 0.2);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+}
+
+body.light-theme .theme-toggle-btn {
+  background: rgba(2, 132, 199, 0.1);
+  border-color: rgba(2, 132, 199, 0.35);
+  color: var(--accent-cyan);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+  background: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.25);
+}
+
+.csv-btn {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.18), rgba(79, 172, 254, 0.12));
+  border-color: rgba(0, 242, 254, 0.35);
+  color: var(--accent-cyan);
+}
+
+.csv-btn:hover {
+  background: var(--accent-cyan);
+  color: #0B1020;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.45);
+}
+
+body.light-theme .csv-btn:hover {
+  color: #ffffff;
+}
+
+/* ─── SCADA Tabs Navigation Bar ─── */
+.scada-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  box-shadow: var(--shadow-card);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.tab-btn i {
+  font-size: 1.05rem;
+  transition: transform 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tab-btn:hover i {
+  transform: translateY(-1px);
+}
+
+body.light-theme .tab-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn.active {
+  background: rgba(0, 242, 254, 0.14);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.2);
+}
+
+body.light-theme .tab-btn.active {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.15);
+}
+
+/* ─── Tab Content Containers (Flex & Fill) ─── */
+.tab-content {
+  flex: 1;
+  min-height: 0;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 4px;
+  animation: fadeInTab 0.22s ease-out forwards;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Section Header ─── */
+.section-header {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-header h2 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.section-header h2 i {
+  color: var(--accent-cyan);
+  font-size: 1rem;
+}
+
+/* ─── Glassmorphism Card Base ─── */
+.scada-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+}
+
+/* ─── TAB 1: Overview Grid (10 Cards in 2 Proportional Rows) ─── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 10px;
+}
+
+.soc-hero-card {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(145deg, rgba(15, 22, 42, 0.95), rgba(0, 242, 254, 0.08));
+  border-color: rgba(0, 242, 254, 0.3);
+  padding: 16px 18px;
+}
+
+body.light-theme .soc-hero-card {
+  background: linear-gradient(145deg, #ffffff, rgba(2, 132, 199, 0.06));
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+.card-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.soc-hero-body { display: flex; align-items: center; gap: 18px; margin-top: 8px; }
+
+.radial-ring-container { position: relative; width: 88px; height: 88px; flex-shrink: 0; }
+.radial-ring-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: var(--ring-bg-stroke); stroke-width: 9; }
+.ring-fg {
+  fill: none;
+  stroke: var(--accent-cyan);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 264;
+  stroke-dashoffset: 264;
+  transition: stroke-dashoffset 0.8s ease, stroke 0.3s ease;
+}
+
+.ring-val {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+}
+
+.hero-details { display: flex; flex-direction: column; gap: 6px; }
+.hero-status { font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 12px; }
+.status-normal { background: rgba(0, 230, 118, 0.15); color: var(--accent-green); border: 1px solid rgba(0, 230, 118, 0.3); }
+.status-warn { background: rgba(255, 171, 0, 0.15); color: var(--accent-amber); border: 1px solid rgba(255, 171, 0, 0.3); }
+
+body.light-theme .status-normal { background: rgba(5, 150, 105, 0.12); color: var(--accent-green); border-color: rgba(5, 150, 105, 0.3); }
+body.light-theme .status-warn { background: rgba(217, 119, 6, 0.12); color: var(--accent-amber); border-color: rgba(217, 119, 6, 0.3); }
+
+.card-metric-val {
+  font-size: 1.7rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.card-metric-val small { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
+.metric-sublabel { font-size: 0.76rem; color: var(--text-dim); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+.mono-text { font-family: var(--font-mono); letter-spacing: 0.5px; }
+
+.green-text { color: var(--accent-green); }
+.amber-text { color: var(--accent-amber); }
+.cyan-text { color: var(--accent-cyan); }
+.purple-text { color: var(--accent-purple); }
+.red-text { color: var(--accent-red); }
+
+.progress-bar-bg { height: 6px; background: var(--ring-bg-stroke); border-radius: 8px; margin-top: 8px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 8px; transition: width 0.5s ease; }
+.fill-green { background: linear-gradient(90deg, var(--accent-electric), var(--accent-green)); }
+
+/* ─── TAB 1: Topology & Module Visualizer ─── */
+.topology-pack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 12px;
+}
+
+.card-header-clean {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.badge-blue {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(0, 242, 254, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+body.light-theme .badge-blue {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+.topology-specs-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+}
+
+body.light-theme .topology-specs-list {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.spec-item { font-size: 0.84rem; display: flex; justify-content: space-between; }
+.spec-item label { color: var(--text-muted); font-weight: 600; }
+.spec-item span { font-weight: 800; font-family: var(--font-mono); color: var(--text-main); }
+
+.topology-canvas-container {
+  height: 120px;
+  background: var(--canvas-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--bg-card-border);
+}
+
+#topologyCanvasCharge, #topologyCanvasDischarge { width: 100%; height: 100%; display: block; }
+
+/* Interactive Pack Module Visualizer */
+.pack-legend { display: flex; gap: 10px; font-size: 0.76rem; font-weight: 600; }
+.leg-item::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+.leg-good::before { background: var(--accent-green); }
+.leg-warn::before { background: var(--accent-amber); }
+.leg-crit::before { background: var(--accent-red); }
+
+.module-cells-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+}
+
+.module-cell-block {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 12px 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+body.light-theme .module-cell-block {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.module-cell-block:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.35);
+}
+
+body.light-theme .module-cell-block:hover {
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.module-cell-block.block-warn { border-color: rgba(255, 171, 0, 0.5); }
+.module-cell-block.block-crit { border-color: rgba(255, 23, 68, 0.5); }
+
+.cell-num { font-size: 0.74rem; font-weight: 700; color: var(--text-muted); display: block; }
+.cell-v-mini { font-size: 1.1rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-main); margin: 3px 0; }
+.cell-soc-mini { font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); }
+
+/* ─── TAB 2: Cell Telemetry Grid (AT TOP) ─── */
+.cell-monitoring-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.cell-spec-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cell-spec-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 242, 254, 0.35);
+}
+
+body.light-theme .cell-spec-card:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.2);
+}
+
+.cell-card-head { display: flex; justify-content: space-between; align-items: center; }
+.cell-id-title { font-size: 1.05rem; font-weight: 800; color: var(--text-main); }
+
+.status-badge-sm { padding: 3px 9px; border-radius: 12px; font-size: 0.74rem; font-weight: 700; }
+.status-good { background: rgba(0, 230, 118, 0.15); color: var(--accent-green); border: 1px solid rgba(0, 230, 118, 0.35); }
+.status-degrading { background: rgba(255, 171, 0, 0.15); color: var(--accent-amber); border: 1px solid rgba(255, 171, 0, 0.35); }
+.status-dead { background: rgba(255, 23, 68, 0.15); color: var(--accent-red); border: 1px solid rgba(255, 23, 68, 0.35); }
+
+body.light-theme .status-good { background: rgba(5, 150, 105, 0.14); color: var(--accent-green); border-color: rgba(5, 150, 105, 0.3); }
+body.light-theme .status-degrading { background: rgba(217, 119, 6, 0.14); color: var(--accent-amber); border-color: rgba(217, 119, 6, 0.3); }
+body.light-theme .status-dead { background: rgba(220, 38, 38, 0.14); color: var(--accent-red); border-color: rgba(220, 38, 38, 0.3); }
+
+.cell-main-values { display: flex; justify-content: space-between; align-items: center; }
+.cell-voltage-hero { font-size: 1.85rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-main); }
+.cell-voltage-hero small { font-size: 1.05rem; color: var(--accent-cyan); }
+
+.mini-radial-soc { position: relative; width: 44px; height: 44px; flex-shrink: 0; }
+.mini-radial-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.mini-ring-bg { fill: none; stroke: var(--ring-bg-stroke); stroke-width: 8; }
+.mini-ring-fg { fill: none; stroke: var(--accent-cyan); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 110; stroke-dashoffset: 110; transition: stroke-dashoffset 0.5s ease; }
+.mini-ring-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.74rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-main); }
+
+.cell-details-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+}
+
+body.light-theme .cell-details-compact {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cell-details-compact label { color: var(--text-muted); display: block; font-size: 0.7rem; font-weight: 600; }
+.cell-details-compact span { font-family: var(--font-mono); font-weight: 800; color: var(--text-main); font-size: 0.88rem; }
+
+/* ─── Voltage Gauges & Tri-Grid ─── */
+.badge-tag { font-size: 0.78rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: rgba(0, 242, 254, 0.12); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.25); }
+
+body.light-theme .badge-tag {
+  background: rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
+.digital-gauges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gauge-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+body.light-theme .gauge-box {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.gauge-box label { font-size: 0.74rem; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 600; }
+.gauge-box span { font-size: 1.25rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-main); }
+
+.current-gauges-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.current-gauge-item label { font-size: 0.76rem; color: var(--text-muted); display: block; margin-bottom: 4px; font-weight: 600; }
+.current-gauge-item span { font-size: 1.4rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-main); }
+
+.mini-waveform-container { height: 75px; background: var(--canvas-bg); border-radius: var(--radius-sm); border: 1px solid var(--bg-card-border); margin-top: 8px; }
+#miniCurrentWaveform { width: 100%; height: 100%; display: block; }
+
+/* ─── TAB 4: Protection Status Badges ─── */
+.status-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-badge-item {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid transparent;
+}
+
+.badge-active-green { background: rgba(0, 230, 118, 0.15); color: var(--accent-green); border-color: rgba(0, 230, 118, 0.35); }
+.badge-inactive { background: rgba(255, 255, 255, 0.04); color: var(--text-muted); border-color: rgba(255, 255, 255, 0.08); }
+.badge-ok { background: rgba(0, 242, 254, 0.1); color: var(--accent-cyan); border-color: rgba(0, 242, 254, 0.25); }
+.badge-alert { background: rgba(255, 23, 68, 0.18); color: var(--accent-red); border-color: rgba(255, 23, 68, 0.35); }
+
+body.light-theme .badge-active-green { background: rgba(5, 150, 105, 0.14); color: var(--accent-green); border-color: rgba(5, 150, 105, 0.3); }
+body.light-theme .badge-inactive { background: #f8fafc; color: var(--text-muted); border-color: rgba(0, 0, 0, 0.08); }
+body.light-theme .badge-ok { background: rgba(2, 132, 199, 0.1); color: var(--accent-cyan); border-color: rgba(2, 132, 199, 0.25); }
+body.light-theme .badge-alert { background: rgba(220, 38, 38, 0.15); color: var(--accent-red); border-color: rgba(220, 38, 38, 0.3); }
+
+/* ─── Charts & Health Layout ─── */
+.chart-health-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 12px;
+}
+
+.chart-card-box { display: flex; flex-direction: column; gap: 10px; }
+.chart-legend-mini { display: flex; gap: 10px; font-size: 0.74rem; font-weight: 600; }
+.dot-legend::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+.leg-green::before { background: var(--accent-green); }
+.leg-amber::before { background: var(--accent-amber); }
+.leg-red::before { background: var(--accent-red); }
+
+.chart-holder-large { height: 260px; width: 100%; position: relative; }
+
+/* Health Analytics & Doughnut */
+.health-analytics-content { display: flex; align-items: center; gap: 18px; }
+
+.doughnut-container { position: relative; width: 125px; height: 125px; flex-shrink: 0; }
+.doughnut-center-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.doughnut-center-text span { font-size: 1.35rem; font-weight: 800; font-family: var(--font-mono); color: var(--accent-green); display: block; }
+.doughnut-center-text small { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
+
+.health-specs-list { flex: 1; display: flex; flex-direction: column; gap: 6px; font-size: 0.84rem; }
+.h-spec { display: flex; justify-content: space-between; padding-bottom: 4px; border-bottom: 1px dashed rgba(255, 255, 255, 0.08); }
+body.light-theme .h-spec { border-bottom: 1px dashed rgba(0, 0, 0, 0.08); }
+.h-spec label { color: var(--text-muted); font-weight: 600; }
+.h-spec strong { font-family: var(--font-mono); color: var(--text-main); font-weight: 800; }
+
+/* ─── Historical Time Series Section ─── */
+.historical-card-box { display: flex; flex-direction: column; gap: 8px; }
+.timeframe-buttons { display: flex; gap: 6px; }
+
+.tf-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-main);
+}
+
+.tf-btn:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-main); }
+.tf-btn.active { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(0, 242, 254, 0.14); }
+
+body.light-theme .tf-btn {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-muted);
+}
+
+body.light-theme .tf-btn:hover {
+  background: #f8fafc;
+  color: var(--text-main);
+}
+
+body.light-theme .tf-btn.active {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(2, 132, 199, 0.12);
+}
+
+.chart-holder-xlarge { height: 260px; width: 100%; position: relative; }
+
+/* ─── Modal Diagnostic Overlay ─── */
+.scada-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+body.light-theme .scada-modal-overlay {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.scada-modal-overlay.active { display: flex; }
+
+.scada-modal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border-glow);
+  border-radius: var(--radius-xl);
+  width: 90%;
+  max-width: 520px;
+  padding: 24px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .scada-modal-card {
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.modal-header h3 { font-size: 1.15rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 8px; }
+.modal-close-btn { background: transparent; border: none; font-size: 1.6rem; color: var(--text-muted); cursor: pointer; }
+.modal-close-btn:hover { color: var(--text-main); }
+
+/* Modal Inputs & Features */
+.modal-form-group {
+  margin-bottom: 14px;
+}
+
+.modal-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent-cyan);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.modal-input, .modal-select {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-input:focus, .modal-select:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 242, 254, 0.2);
+}
+
+body.light-theme .modal-input:focus, body.light-theme .modal-select:focus {
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.ml-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.feat-box {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--bg-card-border);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
+body.light-theme .feat-box {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.feat-box label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.feat-box span {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+/* ─── Simulation Controls ─── */
+.sim-controls-group { display: flex; flex-wrap: wrap; gap: 14px; }
+.sim-group { display: flex; align-items: center; gap: 8px; }
+.sim-group label { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); }
+
+.cell-config-btn, .toggle-control-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-main);
+}
+
+.cell-config-btn:hover, .toggle-control-btn:hover { background: rgba(255,255,255,0.1); color: var(--text-main); }
+.cell-config-btn.active, .toggle-control-btn.active { border-color: var(--accent-cyan); color: var(--accent-cyan); background: rgba(0, 242, 254, 0.14); }
+
+body.light-theme .cell-config-btn, body.light-theme .toggle-control-btn {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: var(--text-muted);
+}
+
+body.light-theme .cell-config-btn:hover, body.light-theme .toggle-control-btn:hover {
+  background: #f8fafc;
+  color: var(--text-main);
+}
+
+body.light-theme .cell-config-btn.active, body.light-theme .toggle-control-btn.active {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(2, 132, 199, 0.12);
+}
+
+/* ─── Responsive Adjustments ─── */
+@media (max-width: 1200px) {
+  .overview-grid { grid-template-columns: repeat(3, 1fr); }
+  .topology-pack-grid { grid-template-columns: 1fr; }
+  .chart-health-grid { grid-template-columns: 1fr; }
+  .scada-header { flex-wrap: wrap; gap: 10px; }
+}
+
+@media (max-width: 768px) {
+  body.scada-theme { overflow-y: auto; height: auto; min-height: 100vh; }
+  .app-layout { overflow: visible; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .soc-hero-card { grid-row: auto; }
+  .cell-monitoring-grid { grid-template-columns: 1fr; }
+  .module-cells-grid { grid-template-columns: repeat(4, 1fr); }
+  .scada-tabs-nav { overflow-x: auto; }
+  .tab-btn { padding: 8px 14px; font-size: 0.8rem; }
+}

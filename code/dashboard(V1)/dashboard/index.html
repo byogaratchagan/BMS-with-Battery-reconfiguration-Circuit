@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battery Reconfigurable BMS</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- hammerjs + chartjs-plugin-zoom for interactive pan/zoom -->
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.2.1/dist/chartjs-plugin-zoom.min.js"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Immediate theme restoration to prevent flash of wrong theme
+    (function() {
+      const savedTheme = localStorage.getItem('bms_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="scada-theme">
+  <script>
+    if (localStorage.getItem('bms_theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
+
+  <!-- Full Screen Diagnostic Overlays (Hidden by Default) -->
+  <div id="disconnectedOverlay" class="scada-overlay" style="display: none;">
+    <div class="overlay-card">
+      <div class="overlay-icon red-text"><i class="fa-solid fa-triangle-exclamation animate-pulse"></i></div>
+      <h2>Battery Not Connected</h2>
+      <p>Connect battery module to scan series configuration and initialize cell monitoring grid.</p>
+    </div>
+  </div>
+
+  <div id="offlineOverlay" class="scada-overlay" style="display: none;">
+    <div class="overlay-card">
+      <div class="overlay-icon amber-text"><i class="fa-solid fa-wifi-slash animate-pulse"></i></div>
+      <h2>Device Offline</h2>
+      <p>BMS Telemetry signal lost. Attempting auto-reconnection to ESP32 broadcast server...</p>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Floating Alerts Notification Drawer -->
+    <div id="floatingAlertsDrawer" class="floating-alerts-drawer">
+      <div class="alerts-drawer-header">
+        <span><i class="fa-solid fa-bell"></i> Live Alerts & Safety Logs</span>
+        <button class="clear-alerts-btn" id="clearAlertsBtn">Dismiss All</button>
+      </div>
+      <div class="alerts-list" id="alertsList">
+        <!-- Floating alerts rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Top SCADA Compact Header -->
+    <header class="scada-header">
+      <div class="brand-group">
+        <div class="scada-logo"><i class="fa-solid fa-car-battery"></i></div>
+        <div>
+          <h1 class="scada-title">BATTERY RECONFIGURABLE BMS</h1>
+          <div class="scada-subtitle">
+            <span class="pack-badge" id="headerPackName">EV-16S4P-Module-Alpha</span>
+            <span class="dot-separator">•</span>
+            <span id="lastUpdateTimestamp"><i class="fa-regular fa-clock"></i> Last Update: --</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scada-controls">
+        <div class="system-status-pill" id="systemStatusPill">
+          <span class="status-pulse" id="statusPulseDot"></span>
+          <span id="systemStatusText">SCANNING STATUS...</span>
+        </div>
+
+        <div class="scada-pill" id="configModePill">
+          <i class="fa-solid fa-diagram-project"></i>
+          <span id="topologyText">--</span>
+        </div>
+
+        <!-- Theme Switcher Button -->
+        <button class="scada-btn theme-toggle-btn" id="themeToggleBtn" title="Switch Theme">
+          <i class="fa-solid fa-sun" id="themeToggleIcon"></i>
+          <span id="themeToggleText">Light Theme</span>
+        </button>
+
+        <!-- System Config Button -->
+        <button class="scada-btn config-btn" id="openConfigBtn">
+          <i class="fa-solid fa-gear"></i> System Config
+        </button>
+
+        <!-- Export CSV Button -->
+        <button class="scada-btn csv-btn" id="exportCsvBtn">
+          <i class="fa-solid fa-file-csv"></i> Export Logs
+        </button>
+      </div>
+    </header>
+
+    <!-- Tab Navigation Bar -->
+    <nav class="scada-tabs-nav" id="scadaTabsNav">
+      <button class="tab-btn active" data-tab="tab-overview">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>Overview</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-cells">
+        <i class="fa-solid fa-table-cells"></i>
+        <span>Cell Telemetry</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-analytics">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Analytics & Trends</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-safety">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Protection & Config</span>
+      </button>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <!-- TAB 1: OVERVIEW                                                             -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <div id="tab-overview" class="tab-content active">
+      <!-- Section 1: Pack Overview Summary Metrics (10 Cards) -->
+      <section class="section-container">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-gauge"></i> Pack Overview Summary Metrics</h2>
+        </div>
+
+        <div class="overview-grid">
+          <!-- 1. Total SOC -->
+          <div class="scada-card metric-card soc-hero-card">
+            <div class="card-label">Total Battery SOC</div>
+            <div class="soc-hero-body">
+              <div class="radial-ring-container">
+                <svg viewBox="0 0 100 100" class="radial-ring-svg">
+                  <circle cx="50" cy="50" r="42" class="ring-bg"></circle>
+                  <circle cx="50" cy="50" r="42" class="ring-fg" id="overviewSocRing"></circle>
+                </svg>
+                <div class="ring-val" id="valOverviewSoc">--</div>
+              </div>
+              <div class="hero-details">
+                <span class="hero-status status-normal" id="socStatusBadge"><i class="fa-solid fa-bolt"></i> Ready</span>
+                <small>State of Charge</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Total SOH -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Total Battery SOH</div>
+            <div class="card-metric-val" id="valOverviewSoh">--</div>
+            <div class="metric-sublabel"><i class="fa-solid fa-heart-pulse"></i> State of Health</div>
+            <div class="progress-bar-bg"><div class="progress-fill fill-green" id="sohBarFill" style="width: 0%;"></div></div>
+          </div>
+
+          <!-- 3. Battery Operating Status -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Operating Status</div>
+            <div class="card-metric-val" id="valOverviewState">--</div>
+            <div class="metric-sublabel" id="valOverviewMode">System Standby</div>
+          </div>
+
+          <!-- 4. Pack Voltage -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Pack Voltage</div>
+            <div class="card-metric-val" id="valPackVoltage">--</div>
+            <div class="metric-sublabel">Series Connected Voltage</div>
+          </div>
+
+          <!-- 5. Pack Current -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Pack Current</div>
+            <div class="card-metric-val" id="valPackCurrent">--</div>
+            <div class="metric-sublabel" id="valCurrentDir">Amperage Flow</div>
+          </div>
+
+          <!-- 6. Input Voltage -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Input Voltage (V_in)</div>
+            <div class="card-metric-val" id="valInputVoltage">--</div>
+            <div class="metric-sublabel">Charger Bus Voltage</div>
+          </div>
+
+          <!-- 7. Pack Temperature -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Battery Temp</div>
+            <div class="card-metric-val" id="valPackTemp">--</div>
+            <div class="metric-sublabel" id="valTempStatus">Core Cell Temperature</div>
+          </div>
+
+          <!-- 8. Remaining Capacity -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Remaining Capacity</div>
+            <div class="card-metric-val" id="valRemainingAh">--</div>
+            <div class="metric-sublabel">Available Ah</div>
+          </div>
+
+          <!-- 9. Estimated Remaining Time -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Est. Remaining Time</div>
+            <div class="card-metric-val mono-text" id="valRemainingTime">--</div>
+            <div class="metric-sublabel">Battery Run Time</div>
+          </div>
+
+          <!-- 10. Power Output -->
+          <div class="scada-card metric-card">
+            <div class="card-label">Total Power</div>
+            <div class="card-metric-val" id="valPowerKw">--</div>
+            <div class="metric-sublabel">P = V × I</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 & 10: Battery Pack Topology Diagram & Live Module Visualizer -->
+      <section class="section-container">
+        <div class="topology-pack-grid">
+          <!-- Topology Diagram (Section 3) -->
+          <div class="scada-card topology-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-diagram-project"></i> Module Topology Diagram</span>
+              <span class="badge-blue" id="topBadgeConfig">-- Config</span>
+            </div>
+            <div class="topology-specs-list">
+              <div class="spec-item"><label>Charge Topology:</label><span id="valChargeTopology" class="green-text">--</span></div>
+              <div class="spec-item"><label>Discharge Topology:</label><span id="valDischargeTopology" class="amber-text">--</span></div>
+              <div class="spec-item"><label>Total Cells:</label><span id="valTotalCells">--</span></div>
+              <div class="spec-item"><label>Busbar Status:</label><span class="green-text">Normal Contact</span></div>
+            </div>
+            <!-- Two topology canvases side by side -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div>
+                <div style="font-size:11px; color:var(--accent-green); text-align:center; margin-bottom:4px; font-family:'Outfit'; font-weight:800; letter-spacing:0.5px;">⚡ CHARGING TOPOLOGY</div>
+                <div class="topology-canvas-container">
+                  <canvas id="topologyCanvasCharge"></canvas>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:11px; color:var(--accent-amber); text-align:center; margin-bottom:4px; font-family:'Outfit'; font-weight:800; letter-spacing:0.5px;">🔋 DISCHARGING TOPOLOGY</div>
+                <div class="topology-canvas-container">
+                  <canvas id="topologyCanvasDischarge"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Battery Module Layout (Section 10) -->
+          <div class="scada-card pack-visualizer-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-microchip"></i> Live Battery Module Layout (Click Cell for Diagnostics)</span>
+              <div class="pack-legend">
+                <span class="leg-item leg-good">Normal</span>
+                <span class="leg-item leg-warn">Warning</span>
+                <span class="leg-item leg-crit">Critical</span>
+              </div>
+            </div>
+            <div class="module-cells-grid" id="moduleVisualizerGrid">
+              <!-- Dynamically generated cell blocks -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <!-- TAB 2: CELL TELEMETRY (Cell Grid placed AT TOP as requested)               -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <div id="tab-cells" class="tab-content">
+      <!-- Section 2: Individual Cell Telemetry Monitoring Grid (AT THE TOP) -->
+      <section class="section-container">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-table-cells"></i> Individual Cell Telemetry Monitoring Grid</h2>
+        </div>
+        <div class="cell-monitoring-grid" id="cellMonitoringGrid">
+          <!-- Dynamically generated cell cards appear right here at the top! -->
+        </div>
+      </section>
+
+      <!-- Bottom Split: Voltage Distribution Bar Chart (Left) & Voltage Spread Gauges (Right) -->
+      <section class="section-container">
+        <div class="chart-health-grid" style="grid-template-columns: 1.35fr 1fr;">
+          <!-- Section 6: Cell Voltage Bar Chart -->
+          <div class="scada-card chart-card-box">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-chart-simple"></i> Individual Cell Voltage Distribution ($C_1 \dots C_N$)</span>
+              <div class="chart-legend-mini">
+                <span class="dot-legend leg-green">Normal (3.2V-4.15V)</span>
+                <span class="dot-legend leg-amber">Warning</span>
+                <span class="dot-legend leg-red">Abnormal</span>
+              </div>
+            </div>
+            <div class="chart-holder-large">
+              <canvas id="cellVoltageBarChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Section 4: Voltage Monitoring & Spread Gauges -->
+          <div class="scada-card panel-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-bolt"></i> Voltage Monitoring & Spread</span>
+              <span class="badge-tag" id="deltaVBadge">ΔV = --</span>
+            </div>
+            <div class="digital-gauges-grid">
+              <div class="gauge-box"><label>Input V_in</label><span id="gaugeVin">--</span></div>
+              <div class="gauge-box"><label>Pack V_bat</label><span id="gaugeVbat">--</span></div>
+              <div class="gauge-box"><label>Highest (V_max)</label><span id="gaugeVmax">--</span></div>
+              <div class="gauge-box"><label>Lowest (V_min)</label><span id="gaugeVmin">--</span></div>
+              <div class="gauge-box"><label>Average Cell</label><span id="gaugeVavg">--</span></div>
+              <div class="gauge-box"><label>Spread (ΔV)</label><span id="gaugeDeltaV">--</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <!-- TAB 3: ANALYTICS & TRENDS                                                   -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <div id="tab-analytics" class="tab-content">
+      <!-- Section 9: Historical Time-Series Analytics (Interactive Zoom & Pan) -->
+      <section class="section-container">
+        <div class="scada-card historical-card-box">
+          <div class="card-header-clean">
+            <span><i class="fa-solid fa-chart-line"></i> Historical Time-Series Analytics (Interactive Zoom & Pan)</span>
+            <div class="timeframe-buttons">
+              <button class="tf-btn active" data-range="1m">1 Min</button>
+              <button class="tf-btn" data-range="5m">5 Min</button>
+              <button class="tf-btn" data-range="1h">1 Hour</button>
+              <button class="tf-btn" data-range="24h">24 Hours</button>
+            </div>
+          </div>
+          <div class="chart-holder-xlarge" style="position:relative;">
+            <canvas id="historicalTimeSeriesChart"></canvas>
+            <button id="resetZoomBtn" title="Reset Zoom" style="display:none; position:absolute; top:8px; right:8px; background:rgba(0,242,254,0.15); color:var(--accent-cyan); border:1px solid rgba(0,242,254,0.4); border-radius:4px; padding:5px 12px; font-family:'Outfit'; font-size:11px; font-weight:700; cursor:pointer; align-items:center; gap:5px;">
+              <i class="fa-solid fa-magnifying-glass-minus"></i> Reset Zoom
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Current Flow & Battery Health Analytics -->
+      <section class="section-container">
+        <div class="chart-health-grid">
+          <!-- Section 5: Current Monitoring & Waveform -->
+          <div class="scada-card panel-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-wave-square"></i> Current Monitoring & Waveform</span>
+              <span class="badge-tag" id="currentDirectionTag">--</span>
+            </div>
+            <div class="current-gauges-row">
+              <div class="current-gauge-item">
+                <label>Charging Current</label>
+                <span id="valChargeCurrent">--</span>
+              </div>
+              <div class="current-gauge-item">
+                <label>Discharging Current</label>
+                <span id="valDischargeCurrent">--</span>
+              </div>
+              <div class="current-gauge-item">
+                <label>Net Pack Current</label>
+                <span id="valNetCurrent">--</span>
+              </div>
+            </div>
+            <div class="mini-waveform-container">
+              <canvas id="miniCurrentWaveform"></canvas>
+            </div>
+          </div>
+
+          <!-- Section 7: Health Analytics & Doughnut Breakdown -->
+          <div class="scada-card health-analytics-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-chart-pie"></i> Battery Health Analytics</span>
+            </div>
+            <div class="health-analytics-content">
+              <div class="doughnut-container">
+                <canvas id="healthDoughnutChart"></canvas>
+                <div class="doughnut-center-text">
+                  <span id="doughnutAvgSoh">--</span>
+                  <small>Avg SOH</small>
+                </div>
+              </div>
+
+              <div class="health-specs-list">
+                <div class="h-spec"><label>Strongest Cell:</label><strong id="valStrongestCell">--</strong></div>
+                <div class="h-spec"><label>Weakest Cell:</label><strong id="valWeakestCell">--</strong></div>
+                <div class="h-spec"><label>Cell Imbalance:</label><strong id="valHealthImbalance">--</strong></div>
+                <div class="h-spec"><label>Est. Cycle Life:</label><strong id="valCycleLife">--</strong></div>
+                <div class="h-spec"><label>Aging Trend:</label><strong id="valAgingTrend">--</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <!-- TAB 4: PROTECTION & CONFIG                                                  -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════ -->
+    <div id="tab-safety" class="tab-content">
+      <!-- Section 8: Protection Status Badges -->
+      <section class="section-container">
+        <div class="scada-card panel-card">
+          <div class="card-header-clean">
+            <span><i class="fa-solid fa-shield-halved"></i> Battery Protection Status Panel</span>
+          </div>
+          <div class="status-badges-grid">
+            <div class="status-badge-item badge-inactive" id="badgeState"><i class="fa-solid fa-charging-station"></i> Charging</div>
+            <div class="status-badge-item badge-inactive" id="badgeDischarge"><i class="fa-solid fa-car"></i> Discharging</div>
+            <div class="status-badge-item badge-inactive" id="badgeIdle"><i class="fa-solid fa-pause"></i> Standby / Idle</div>
+            <div class="status-badge-item badge-inactive" id="badgeFault"><i class="fa-solid fa-triangle-exclamation"></i> Fault State</div>
+            <div class="status-badge-item badge-inactive" id="badgeOverV"><i class="fa-solid fa-check"></i> Over Voltage OK</div>
+            <div class="status-badge-item badge-inactive" id="badgeUnderV"><i class="fa-solid fa-check"></i> Under Voltage OK</div>
+            <div class="status-badge-item badge-inactive" id="badgeOverI"><i class="fa-solid fa-check"></i> Over Current OK</div>
+            <div class="status-badge-item badge-inactive" id="badgeOverT"><i class="fa-solid fa-check"></i> Temp Protection OK</div>
+            <div class="status-badge-item badge-inactive" id="badgeImbalance"><i class="fa-solid fa-check"></i> Cell Balance OK</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hardware Config & Simulator Grid -->
+      <section class="section-container">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <!-- BMS Parameters Overview & Quick Access -->
+          <div class="scada-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-sliders"></i> BMS Configuration Parameters</span>
+              <button class="scada-btn" id="openConfigBtnInline" style="padding:5px 14px; font-size:0.8rem;">
+                <i class="fa-solid fa-gear"></i> Edit Config
+              </button>
+            </div>
+            <div class="topology-specs-list" style="margin-bottom:0;">
+              <div class="spec-item"><label>Charging Topology:</label><span id="cfgDispCharge">--</span></div>
+              <div class="spec-item"><label>Discharge Topology:</label><span id="cfgDispDischarge">--</span></div>
+              <div class="spec-item"><label>Rated Capacity:</label><span id="cfgDispCapacity">-- Ah</span></div>
+              <div class="spec-item"><label>Cutoff Voltage:</label><span id="cfgDispMaxV">-- V</span></div>
+              <div class="spec-item" style="grid-column: span 2;"><label>Cutoff Current:</label><span id="cfgDispCutoffI">-- A</span></div>
+            </div>
+          </div>
+
+          <!-- Interactive Test & Simulator Controls -->
+          <div class="scada-card">
+            <div class="card-header-clean">
+              <span><i class="fa-solid fa-vial"></i> Test Dashboard & Simulation Scenarios</span>
+            </div>
+            <div class="sim-controls-group" style="flex-direction: column; gap: 8px;">
+              <div class="sim-group">
+                <label>Cells count:</label>
+                <button class="cell-config-btn active" data-cells="3">3 Cells</button>
+                <button class="cell-config-btn" data-cells="4">4 Cells</button>
+                <button class="cell-config-btn" data-cells="8">8 Cells</button>
+                <button class="cell-config-btn" data-cells="12">12 Cells</button>
+                <button class="cell-config-btn" data-cells="16">16 Cells</button>
+              </div>
+              <div class="sim-group">
+                <label>Battery Connection:</label>
+                <button class="toggle-control-btn active" id="btnConnectTrue">Connected</button>
+                <button class="toggle-control-btn" id="btnConnectFalse">Disconnected</button>
+              </div>
+              <div class="sim-group">
+                <label>ESP32 Broadcast Signal:</label>
+                <button class="toggle-control-btn active" id="btnSignalTrue">Online</button>
+                <button class="toggle-control-btn" id="btnSignalFalse">Offline</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Detailed Cell Diagnostics Modal (Section 10 Detail) -->
+  <div class="scada-modal-overlay" id="cellDetailModal">
+    <div class="scada-modal-card">
+      <div class="modal-header">
+        <h3 id="modalCellTitle"><i class="fa-solid fa-battery-half"></i> Cell Diagnostics Overview</h3>
+        <button class="modal-close-btn" id="closeCellModalBtn">&times;</button>
+      </div>
+      <div class="modal-body-content" id="modalCellBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- System Configuration Modal -->
+  <div class="scada-modal-overlay" id="configModal">
+    <div class="scada-modal-card">
+      <div class="modal-header">
+        <h3 id="configModalTitle"><i class="fa-solid fa-sliders"></i> BMS Configuration Parameters</h3>
+        <button class="modal-close-btn" id="closeConfigModalBtn">&times;</button>
+      </div>
+      <div class="modal-body-content">
+        
+        <div class="modal-form-group">
+          <label>Charging Configuration</label>
+          <select id="configChargeMode" class="modal-select">
+            <option value="1">Series</option>
+            <option value="0">Parallel</option>
+          </select>
+        </div>
+
+        <div class="modal-form-group">
+          <label>Discharging Configuration</label>
+          <select id="configDischargeMode" class="modal-select">
+            <option value="1">Series</option>
+            <option value="0">Parallel</option>
+          </select>
+        </div>
+
+        <div class="modal-form-group">
+          <label>Cell Capacity (Ah)</label>
+          <input type="number" id="configCapacity" class="modal-input" step="0.1">
+        </div>
+
+        <div class="modal-form-group">
+          <label>Charging Cutoff Voltage (V)</label>
+          <input type="number" id="configMaxVoltage" class="modal-input" step="0.01">
+        </div>
+
+        <div class="modal-form-group" style="margin-bottom: 18px;">
+          <label>Charging Cutoff Current (A)</label>
+          <input type="number" id="configCutoffCurrent" class="modal-input" step="0.01">
+        </div>
+
+        <button id="saveConfigBtn" class="scada-btn" style="width: 100%; justify-content: center; background: rgba(0,242,254,0.15); border-color: var(--accent-cyan); color: var(--accent-cyan); font-weight: 700; padding: 10px;">
+          <i class="fa-solid fa-floppy-disk"></i> Save Configuration to ESP32
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
