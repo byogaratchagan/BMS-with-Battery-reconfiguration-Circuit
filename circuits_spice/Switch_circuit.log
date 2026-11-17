@@ -1,0 +1,15 @@
+LTspice 24.1.10 for Windows
+Circuit: D:\backup\projects\R_BMS_GIT\dev\circuits_spice\Switch_circuit.net
+Start Time: Wed Nov 18 01:35:30 2026
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.137 seconds.
+
+Files loaded:
+D:\backup\projects\R_BMS_GIT\dev\circuits_spice\Switch_circuit.net
+C:\Users\Yogaratchagan\AppData\Local\LTspice\lib\cmp\standard.mos
+
