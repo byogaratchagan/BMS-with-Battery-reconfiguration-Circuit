@@ -1,0 +1,227 @@
+(footprint "TerminalBlock_MetzConnect_360291_1x01_Horizontal_ScrewM3.0_Boxed"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "single screw terminal block Metz Connect 360291, block size 9x7.3mm, drill diameter 1.5mm, pad diameter 3mm, https://media.metz-connect.com/files/171/Data_sheet_360291.PDF ")
+	(tags "THT single screw terminal block Metz Connect 360291 size 9x7.3mm drill 1.5mm pad 3mm")
+	(property "Reference" "REF**"
+		(at 2 -4.77 0)
+		(layer "F.SilkS")
+		(uuid "cc2fef23-67a1-461b-a285-3aa57b8b0c55")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TerminalBlock_MetzConnect_360291_1x01_Horizontal_ScrewM3.0_Boxed"
+		(at 2 4.77 0)
+		(layer "F.Fab")
+		(uuid "3cf2c1c3-3509-4a82-ba46-6e367824253a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "39b52b16-e247-41bc-a9f4-531eb9144533")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3c71da56-7272-4db1-a20c-eb4eebdb0f3d")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "KiLib_Generator" "terminal_block/Metz_Connect"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "f00a0320-0db5-48dc-a68a-cfa5983521d7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.62 -3.77)
+		(end 6.62 -3.77)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d07baa57-c33b-48c3-bd0b-afd5f889d6fd")
+	)
+	(fp_line
+		(start -2.62 3.77)
+		(end -2.62 -3.77)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3279e933-1c5f-4b15-b21a-cc38511bd677")
+	)
+	(fp_line
+		(start 6.62 -3.77)
+		(end 6.62 3.77)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8cf42222-645c-4ad3-9b95-fbf47fcc8f44")
+	)
+	(fp_line
+		(start 6.62 3.77)
+		(end -2.62 3.77)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7d54ae54-cd73-4360-8028-c320789bfa91")
+	)
+	(fp_rect
+		(start -3 -4.15)
+		(end 7 4.15)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "0a276ffa-bc84-45db-be16-f317e34b2aff")
+	)
+	(fp_line
+		(start -2.5 -3.65)
+		(end 6.5 -3.65)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "87365a46-fa19-4d44-9756-5ca212922d61")
+	)
+	(fp_line
+		(start -2.5 3.65)
+		(end -2.5 -3.65)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "f6a57e1e-15ac-47c5-ac07-569492045570")
+	)
+	(fp_line
+		(start 3.273 -1.517)
+		(end 0.483 1.273)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "2b980a87-f671-49ee-8dd8-262b86efaadc")
+	)
+	(fp_line
+		(start 3.517 -1.273)
+		(end 0.727 1.517)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "61d17971-86d9-4f96-9b63-6d9e5d2f19ff")
+	)
+	(fp_line
+		(start 6.5 -3.65)
+		(end 6.5 3.65)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "da858bfd-d2b4-493e-98d2-322ce94932f9")
+	)
+	(fp_line
+		(start 6.5 3.65)
+		(end -2.5 3.65)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9be427b5-e946-4f19-abda-3155dfe47bde")
+	)
+	(fp_circle
+		(center 2 0)
+		(end 4 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "19e17eec-e35d-4d6d-9f5b-1f1bff16cf3a")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 2 -4.77 0)
+		(layer "F.Fab")
+		(uuid "32026fd3-1cbf-4c9f-a72b-33191901fd77")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 3 3)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d650376c-a25e-4acd-a045-6536db1cb441")
+	)
+	(pad "2" thru_hole circle
+		(at 4 0)
+		(size 3 3)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "be78d7af-2c59-4a9f-a1c5-3171b3b58492")
+	)
+	(embedded_fonts no)
+	(model "${KICAD10_3DMODEL_DIR}/TerminalBlock_MetzConnect.3dshapes/TerminalBlock_MetzConnect_360291_1x01_Horizontal_ScrewM3.0_Boxed.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

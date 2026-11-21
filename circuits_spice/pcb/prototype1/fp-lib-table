@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "screw_terminal") (type "KiCad") (uri "${KIPRJMOD}/screw_terminal.pretty") (options "") (descr ""))
+)
