@@ -5,7 +5,7 @@
 	(uuid "fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Connector_Generic:Conn_01x01"
+		(symbol "Connector_Generic:Conn_01x04"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -16,7 +16,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "J"
-				(at 0 2.54 0)
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -25,8 +25,8 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x01"
-				(at 0 -2.54 0)
+			(property "Value" "Conn_01x04"
+				(at 0 -7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -57,7 +57,7 @@
 					)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -90,16 +90,27 @@
 					)
 				)
 			)
-			(symbol "Conn_01x01_1_1"
+			(symbol "Conn_01x04_1_1"
 				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -1.27)
+					(start -1.27 3.81)
+					(end 1.27 -6.35)
 					(stroke
 						(width 0.254)
 						(type default)
 					)
 					(fill
 						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(rectangle
@@ -113,8 +124,30 @@
 						(type none)
 					)
 				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at -5.08 2.54 0)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -124,6 +157,60 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2100,6 +2187,12 @@
 		(uuid "4d1d25da-4375-44af-aab9-0978f51e35a2")
 	)
 	(junction
+		(at 227.33 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4ea56574-4f00-40fe-90a2-96dd1688552e")
+	)
+	(junction
 		(at 87.63 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2116,12 +2209,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6894eb22-0319-4b49-abb7-8c54afc9460a")
-	)
-	(junction
-		(at 191.77 74.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7626821d-c78d-4e9f-8766-4922ad646ed6")
 	)
 	(junction
 		(at 87.63 105.41)
@@ -2148,6 +2235,12 @@
 		(uuid "886df26f-a493-465d-8c4a-ca7184b5a6c8")
 	)
 	(junction
+		(at 224.79 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9d965c69-9b07-4e4e-b928-45daf9397d16")
+	)
+	(junction
 		(at 64.77 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2158,12 +2251,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ab636173-fb89-4a7f-b6e1-637abacfc4e3")
-	)
-	(junction
-		(at 194.31 67.31)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b3228210-e3d2-4f16-9f67-bb51718f2469")
 	)
 	(junction
 		(at 63.5 63.5)
@@ -2253,26 +2340,6 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 49.53) (xy 194.31 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a6ae2f5-1c07-4e23-b232-1f43e68d7020")
-	)
-	(wire
-		(pts
-			(xy 189.23 67.31) (xy 194.31 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0accac54-ee68-49d0-8d37-b99fce967d95")
-	)
-	(wire
-		(pts
 			(xy 95.25 74.93) (xy 95.25 78.74)
 		)
 		(stroke
@@ -2333,13 +2400,13 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 55.88) (xy 191.77 55.88)
+			(xy 224.79 38.1) (xy 224.79 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3016b623-e231-47c2-acc7-b48f98070824")
+		(uuid "2f51c208-5df7-447f-9737-be221a7f70a6")
 	)
 	(wire
 		(pts
@@ -2350,6 +2417,16 @@
 			(type default)
 		)
 		(uuid "319e88e4-9525-4e93-94ea-007b0a4d6488")
+	)
+	(wire
+		(pts
+			(xy 229.87 38.1) (xy 224.79 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31a691f9-155c-465c-9a1e-92d59bab40cd")
 	)
 	(wire
 		(pts
@@ -2380,6 +2457,16 @@
 			(type default)
 		)
 		(uuid "36fdcce3-8073-4127-9425-3edf1cf96498")
+	)
+	(wire
+		(pts
+			(xy 227.33 80.01) (xy 231.14 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "410b56ff-ff15-4bf7-bf1e-67d679d322f5")
 	)
 	(wire
 		(pts
@@ -2453,13 +2540,13 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 74.93) (xy 191.77 74.93)
+			(xy 229.87 40.64) (xy 227.33 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5150850b-3713-4e69-bb1c-3e672b28ac12")
+		(uuid "5322f4e2-b16b-49e4-997d-c90939fdbfed")
 	)
 	(wire
 		(pts
@@ -2483,6 +2570,16 @@
 	)
 	(wire
 		(pts
+			(xy 227.33 63.5) (xy 227.33 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "565f3729-f748-46a2-b75b-56c0d4836a65")
+	)
+	(wire
+		(pts
 			(xy 87.63 59.69) (xy 87.63 69.85)
 		)
 		(stroke
@@ -2490,16 +2587,6 @@
 			(type default)
 		)
 		(uuid "5922a47c-dba6-4f61-919c-0cb81a03b899")
-	)
-	(wire
-		(pts
-			(xy 191.77 74.93) (xy 191.77 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "596caf27-b026-4636-87ca-aec97113c962")
 	)
 	(wire
 		(pts
@@ -2563,16 +2650,6 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 67.31) (xy 194.31 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7743e90f-3ece-45fa-8966-8d4d61b38909")
-	)
-	(wire
-		(pts
 			(xy 83.82 105.41) (xy 87.63 105.41)
 		)
 		(stroke
@@ -2600,16 +2677,6 @@
 			(type default)
 		)
 		(uuid "7f1522c7-eef4-49b4-8041-e40aaa2b3c2e")
-	)
-	(wire
-		(pts
-			(xy 194.31 49.53) (xy 194.31 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82dbfa57-2185-47cd-8181-b31cbfd1e12c")
 	)
 	(wire
 		(pts
@@ -2703,6 +2770,16 @@
 	)
 	(wire
 		(pts
+			(xy 227.33 63.5) (xy 231.14 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9637d0c0-6697-48a5-ba45-32de86d9a019")
+	)
+	(wire
+		(pts
 			(xy 57.15 106.68) (xy 57.15 113.03)
 		)
 		(stroke
@@ -2723,6 +2800,16 @@
 	)
 	(wire
 		(pts
+			(xy 231.14 60.96) (xy 224.79 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aedc3da9-b2f9-485c-90bd-5714a49032c7")
+	)
+	(wire
+		(pts
 			(xy 130.81 92.71) (xy 137.16 92.71)
 		)
 		(stroke
@@ -2740,26 +2827,6 @@
 			(type default)
 		)
 		(uuid "b3eda42e-ce6e-485b-991b-c281aec79413")
-	)
-	(wire
-		(pts
-			(xy 194.31 85.09) (xy 189.23 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b5296fb6-2599-498e-bbe3-b1d63d29887c")
-	)
-	(wire
-		(pts
-			(xy 191.77 92.71) (xy 189.23 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b633e2a2-c2b5-4151-b78c-6b0cd9bb5295")
 	)
 	(wire
 		(pts
@@ -2823,6 +2890,16 @@
 	)
 	(wire
 		(pts
+			(xy 227.33 40.64) (xy 227.33 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccd84d97-ed40-4263-bb19-1d84f9b3e3e7")
+	)
+	(wire
+		(pts
 			(xy 139.7 27.94) (xy 143.51 27.94)
 		)
 		(stroke
@@ -2830,16 +2907,6 @@
 			(type default)
 		)
 		(uuid "d3842f62-53ce-43c8-8f23-c862f4e531ad")
-	)
-	(wire
-		(pts
-			(xy 191.77 55.88) (xy 191.77 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d528c54c-400b-41f9-9b4e-0be4fbb1bed7")
 	)
 	(wire
 		(pts
@@ -2880,6 +2947,16 @@
 			(type default)
 		)
 		(uuid "e59dd831-2d02-4f4f-9ca4-5a56e7cbdeba")
+	)
+	(wire
+		(pts
+			(xy 224.79 60.96) (xy 224.79 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5bdcd44-71d3-409f-ade1-d356aca5c21e")
 	)
 	(wire
 		(pts
@@ -2933,6 +3010,16 @@
 	)
 	(wire
 		(pts
+			(xy 224.79 77.47) (xy 231.14 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6543d29-51ff-4270-bb98-75d5d10a0564")
+	)
+	(wire
+		(pts
 			(xy 88.9 34.29) (xy 87.63 34.29)
 		)
 		(stroke
@@ -2972,7 +3059,7 @@
 		(uuid "099aec6c-9fe0-45eb-9467-7a26fe1d4393")
 	)
 	(label "Trans_B3"
-		(at 205.74 92.71 180)
+		(at 231.14 85.09 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3172,7 +3259,7 @@
 		(uuid "70674efb-2b9a-4bb4-8ae1-a2260fc1c6fa")
 	)
 	(label "Trans_A2"
-		(at 205.74 67.31 180)
+		(at 231.14 66.04 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3182,7 +3269,7 @@
 		(uuid "719a7f2a-c51d-4d71-934c-db67fd00d322")
 	)
 	(label "Trans_A1"
-		(at 205.74 49.53 180)
+		(at 229.87 43.18 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3222,7 +3309,7 @@
 		(uuid "7dbd865d-35fc-4258-9672-d0c3ae0ff2d8")
 	)
 	(label "Trans_B1"
-		(at 205.74 55.88 180)
+		(at 229.87 45.72 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3372,7 +3459,7 @@
 		(uuid "c68370cc-55a4-486c-afb5-c49626020531")
 	)
 	(label "Trans_B2"
-		(at 205.74 74.93 180)
+		(at 231.14 68.58 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3382,7 +3469,7 @@
 		(uuid "cb9e2879-d887-4418-be74-43b7ce7f2709")
 	)
 	(label "Trans_in1"
-		(at 191.77 92.71 270)
+		(at 224.79 38.1 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3422,7 +3509,7 @@
 		(uuid "ea548c78-804d-4d38-b0ee-9feefb9c3ce3")
 	)
 	(label "Trans_A3"
-		(at 205.74 85.09 180)
+		(at 231.14 82.55 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3432,7 +3519,7 @@
 		(uuid "f1dd9828-9675-4dab-8b2b-dd4dcbcb8492")
 	)
 	(label "Trans_in2"
-		(at 194.31 85.09 270)
+		(at 227.33 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3671,7 +3758,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 132.08 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -3742,8 +3829,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 210.82 55.88 0)
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 236.22 80.01 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3752,9 +3839,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "0dbe7794-4e83-4c9d-8005-919dfaf31b67")
-		(property "Reference" "J9"
-			(at 213.36 54.6099 0)
+		(uuid "0e8e0881-c1c7-4c03-86a5-6867333aa13a")
+		(property "Reference" "J16"
+			(at 238.76 80.0099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3764,8 +3851,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x01"
-			(at 213.36 57.1499 0)
+		(property "Value" "Conn_01x04"
+			(at 238.76 82.5499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3775,8 +3862,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 210.82 55.88 0)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+			(at 236.22 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3787,7 +3874,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 210.82 55.88 0)
+			(at 236.22 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3797,8 +3884,8 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 55.88 0)
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 236.22 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3807,324 +3894,23 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "2"
+			(uuid "75fc0097-3fb8-4dbb-82e3-d2172387dd73")
+		)
+		(pin "3"
+			(uuid "20a5bb37-18f8-4282-a1c6-0e55cce2e7c1")
 		)
 		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
+			(uuid "57cf2311-3e75-42ac-ac7f-0a8d1c74c581")
+		)
+		(pin "4"
+			(uuid "0d50b116-722e-4176-95f0-89f7c4c063b4")
 		)
 		(instances
 			(project "mosfet_gate_driver"
 				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 184.15 55.88 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "22f4ad5c-5274-449d-8f75-770d6c89c594")
-		(property "Reference" "J3"
-			(at 184.15 49.53 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 184.15 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 184.15 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 184.15 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 184.15 74.93 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "239076d8-1101-4f4c-949d-de66d6229031")
-		(property "Reference" "J5"
-			(at 184.15 68.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 184.15 71.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 184.15 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 184.15 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 184.15 49.53 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2df71c56-843c-4cc9-bcad-5258c970e971")
-		(property "Reference" "J2"
-			(at 184.15 43.18 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 184.15 45.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 184.15 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 184.15 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 210.82 67.31 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2e43bbd1-972d-46bf-9b2a-00b3d3b07cc6")
-		(property "Reference" "J10"
-			(at 213.36 66.0399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 213.36 68.5799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 210.82 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J10")
+					(reference "J16")
 					(unit 1)
 				)
 			)
@@ -4161,7 +3947,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 147.32 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -4262,7 +4048,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 147.32 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -4363,7 +4149,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 63.5 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -4595,85 +4381,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 210.82 49.53 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "46b2065c-e6ad-4248-9616-7f2c813b8ac3")
-		(property "Reference" "J8"
-			(at 213.36 48.2599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 213.36 50.7999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 210.82 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Isolator:PC817")
 		(at 74.93 67.31 0)
 		(mirror x)
@@ -4794,7 +4501,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 64.77 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -4896,7 +4603,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 132.08 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -4961,6 +4668,182 @@
 			(project "mosfet_gate_driver"
 				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
 					(reference "D10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 236.22 63.5 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "59409081-fdd2-45c1-a6d9-8843f5c7e7b1")
+		(property "Reference" "J15"
+			(at 238.76 63.4999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x04"
+			(at 238.76 66.0399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+			(at 236.22 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 236.22 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "75fc0097-3fb8-4dbb-82e3-d2172387dd73")
+		)
+		(pin "3"
+			(uuid "20a5bb37-18f8-4282-a1c6-0e55cce2e7c1")
+		)
+		(pin "1"
+			(uuid "57cf2311-3e75-42ac-ac7f-0a8d1c74c581")
+		)
+		(pin "4"
+			(uuid "0d50b116-722e-4176-95f0-89f7c4c063b4")
+		)
+		(instances
+			(project "mosfet_gate_driver"
+				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
+					(reference "J15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 234.95 40.64 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6d650b52-fbc3-42cb-94d7-f91ae6de04e4")
+		(property "Reference" "J14"
+			(at 237.49 40.6399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x04"
+			(at 237.49 43.1799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+			(at 234.95 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 234.95 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "75fc0097-3fb8-4dbb-82e3-d2172387dd73")
+		)
+		(pin "3"
+			(uuid "20a5bb37-18f8-4282-a1c6-0e55cce2e7c1")
+		)
+		(pin "1"
+			(uuid "57cf2311-3e75-42ac-ac7f-0a8d1c74c581")
+		)
+		(pin "4"
+			(uuid "0d50b116-722e-4176-95f0-89f7c4c063b4")
+		)
+		(instances
+			(project "mosfet_gate_driver"
+				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
+					(reference "J14")
 					(unit 1)
 				)
 			)
@@ -5107,7 +4990,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 147.32 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -5289,7 +5172,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 147.32 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -5393,7 +5276,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D12.5mm_P7.50mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 139.7 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -5442,83 +5325,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 184.15 85.09 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "906a592d-97aa-4a0e-bfb2-f2ca53b12f01")
-		(property "Reference" "J6"
-			(at 184.15 78.74 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 184.15 81.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 184.15 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 184.15 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:D")
 		(at 132.08 57.15 0)
 		(mirror y)
@@ -5550,7 +5356,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 132.08 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -5733,7 +5539,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 132.08 27.94 0)
 			(hide yes)
 			(show_name no)
@@ -6071,85 +5877,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 210.82 74.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a0ddf195-2497-42b6-ae03-19a92e8ebddf")
-		(property "Reference" "J11"
-			(at 213.36 73.6599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 213.36 76.1999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 210.82 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Transistor_BJT:BC557")
 		(at 93.98 105.41 0)
 		(mirror x)
@@ -6294,7 +6021,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D12.5mm_P7.50mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 139.7 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -6337,83 +6064,6 @@
 			(project "mosfet_gate_driver"
 				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
 					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 184.15 92.71 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a8c086d4-be50-464b-9d22-1d6149f0b04f")
-		(property "Reference" "J7"
-			(at 184.15 86.36 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 184.15 88.9 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 184.15 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 184.15 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -6970,7 +6620,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 132.08 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7071,7 +6721,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 64.77 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -7173,7 +6823,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 132.08 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -7274,7 +6924,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 147.32 27.94 0)
 			(hide yes)
 			(show_name no)
@@ -7537,241 +7187,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 210.82 92.71 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "de24abd4-8e1a-46d3-a0f0-d16b90f03945")
-		(property "Reference" "J13"
-			(at 213.36 91.4399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 213.36 93.9799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 210.82 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 210.82 85.09 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "df12bb08-4084-493c-83f2-09ad7774ddef")
-		(property "Reference" "J12"
-			(at 213.36 83.8199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 213.36 86.3599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 210.82 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 210.82 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 184.15 67.31 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e9132612-532e-465f-9a81-4255d1bbf60a")
-		(property "Reference" "J4"
-			(at 184.15 60.96 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 184.15 63.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 184.15 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 184.15 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fd22d864-feb2-47f7-9b1a-d5b49adab952")
-		)
-		(instances
-			(project "mosfet_gate_driver"
-				(path "/fbba0e9d-d9a6-45cc-ab24-4ee0fabe9db7"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_US")
 		(at 60.96 27.94 90)
 		(mirror x)
@@ -7886,7 +7301,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D12.5mm_P7.50mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
 			(at 139.7 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -8055,7 +7470,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_5W_P12.70mm_Horizontal"
+		(property "Footprint" "Diode_THT:D_A-405_P7.62mm_Horizontal"
 			(at 147.32 57.15 0)
 			(hide yes)
 			(show_name no)

@@ -544,7 +544,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "prototype1.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
