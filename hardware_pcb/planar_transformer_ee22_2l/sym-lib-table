@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ee22_lib")(type "KiCad")(uri "${KIPRJMOD}/ee22_lib.kicad_sym")(options "")(descr "Local EE22x13 2-layer planar transformer symbols"))
+)

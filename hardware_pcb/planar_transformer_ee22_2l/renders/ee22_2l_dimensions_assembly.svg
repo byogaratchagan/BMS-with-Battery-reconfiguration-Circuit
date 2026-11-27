@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1140" width="1920" height="1140" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arr-0f4c81" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 2 L9 5 L1 8 z" fill="#0f4c81"/></marker>
+    <marker id="arr-047857" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 2 L9 5 L1 8 z" fill="#047857"/></marker>
+    <marker id="arr-b45309" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 2 L9 5 L1 8 z" fill="#b45309"/></marker>
+    <marker id="arr-6d28d9" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 2 L9 5 L1 8 z" fill="#6d28d9"/></marker>
+    <marker id="arr-b91c1c" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 2 L9 5 L1 8 z" fill="#b91c1c"/></marker>
+    <pattern id="hatch-ferrite" width="6" height="6" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#475569"/><line x1="0" y1="0" x2="0" y2="6" stroke="#64748b" stroke-width="2"/>
+    </pattern>
+    <pattern id="hatch-slot" width="5" height="5" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+      <rect width="5" height="5" fill="#f8fafc"/><line x1="0" y1="0" x2="0" y2="5" stroke="#cbd5e1" stroke-width="1.2"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1140" fill="#f1f5f9"/>
+  <rect x="20" y="16" width="1880" height="56" rx="8" fill="#0f172a"/>
+  <text x="42" y="42" font-size="20" font-weight="700" fill="#f8fafc">EE22/08/13 (PC95) 2-LAYER REVERSIBLE-STACK 1:1 PLANAR TRANSFORMER — DIMENSIONS &amp; ASSEMBLY</text>
+  <text x="42" y="61" font-size="12.5" fill="#94a3b8">1 Single 2-Layer Gerber (30.00 × 28.00 mm, 0.80 mm FR-4, 1 oz Cu)  |  Stack 2 Identical Boards (Flip Top 180° in Y) → 12T:12T (1:1)  |  Mates to mosfet_gate_driver J14–J16</text>
+  <rect x="1715" y="28" width="165" height="32" rx="6" fill="#059669"/>
+  <text x="1797.5" y="49" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">REV 1.0 · 2-LAYER</text>
+
+  <rect x="20" y="86" width="900" height="716" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="86" width="900" height="34" rx="8" fill="#e2e8f0"/><rect x="20" y="108" width="900" height="12" fill="#e2e8f0"/>
+  <text x="38" y="109" font-size="14" font-weight="700" fill="#0f172a">A. SINGLE 2-LAYER PCB GEOMETRY (30.00 × 28.00 mm, 100% Y-Symmetric Around Centerline)</text>
+
+  <rect x="248.00" y="212.00" width="510.00" height="476.00" rx="3" fill="#064e3b" stroke="#022c22" stroke-width="2.4"/>
+  <line x1="234.40" y1="450.00" x2="771.60" y2="450.00" stroke="#64748b" stroke-width="1.1" stroke-dasharray="8,4"/>
+  <line x1="533.60" y1="586.85" x2="518.30" y2="602.15" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="518.30" y1="602.15" x2="476.74" y2="602.15" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="476.74" y1="602.15" x2="470.27" y2="595.69" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="470.27" y1="595.69" x2="470.27" y2="304.31" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="470.27" y1="304.31" x2="476.74" y2="297.85" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="476.74" y1="297.85" x2="590.46" y2="297.85" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="590.46" y1="297.85" x2="596.92" y2="304.31" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="596.92" y1="304.31" x2="596.92" y2="595.69" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="596.92" y1="595.69" x2="590.46" y2="602.15" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="590.46" y1="602.15" x2="542.95" y2="602.15" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="542.95" y1="602.15" x2="532.07" y2="613.03" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="532.07" y1="613.03" x2="472.23" y2="613.03" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="472.23" y1="613.03" x2="459.39" y2="600.20" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="459.39" y1="600.20" x2="459.39" y2="299.80" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="459.39" y1="299.80" x2="472.23" y2="286.97" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="472.23" y1="286.97" x2="594.97" y2="286.97" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="594.97" y1="286.97" x2="607.81" y2="299.80" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="607.81" y1="299.80" x2="607.81" y2="600.20" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="607.81" y1="600.20" x2="594.97" y2="613.03" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="594.97" y1="613.03" x2="547.46" y2="613.03" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="547.46" y1="613.03" x2="536.58" y2="623.91" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="536.58" y1="623.91" x2="467.72" y2="623.91" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="467.72" y1="623.91" x2="448.51" y2="604.70" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="448.51" y1="604.70" x2="448.51" y2="295.30" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="448.51" y1="295.30" x2="467.72" y2="276.09" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="467.72" y1="276.09" x2="599.48" y2="276.09" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="599.48" y1="276.09" x2="618.68" y2="295.30" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="618.68" y1="295.30" x2="618.68" y2="604.70" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="618.68" y1="604.70" x2="599.48" y2="623.91" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="599.48" y1="623.91" x2="551.96" y2="623.91" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="551.96" y1="623.91" x2="541.08" y2="634.79" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="541.08" y1="634.79" x2="463.21" y2="634.79" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="463.21" y1="634.79" x2="437.63" y2="609.21" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="437.63" y1="609.21" x2="437.63" y2="290.79" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="437.63" y1="290.79" x2="463.21" y2="265.21" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="463.21" y1="265.21" x2="603.99" y2="265.21" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="603.99" y1="265.21" x2="629.57" y2="290.79" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="629.57" y1="290.79" x2="629.57" y2="609.21" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="629.57" y1="609.21" x2="603.99" y2="634.79" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="603.99" y1="634.79" x2="556.47" y2="634.79" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="556.47" y1="634.79" x2="545.59" y2="645.67" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="545.59" y1="645.67" x2="458.71" y2="645.67" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="458.71" y1="645.67" x2="426.75" y2="613.72" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="426.75" y1="613.72" x2="426.75" y2="286.28" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="426.75" y1="286.28" x2="458.71" y2="254.33" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="458.71" y1="254.33" x2="608.49" y2="254.33" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="608.49" y1="254.33" x2="640.44" y2="286.28" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="640.44" y1="286.28" x2="640.44" y2="613.72" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="640.44" y1="613.72" x2="608.49" y2="645.67" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="608.49" y1="645.67" x2="560.98" y2="645.67" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="560.98" y1="645.67" x2="550.10" y2="656.55" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="550.10" y1="656.55" x2="454.20" y2="656.55" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="454.20" y1="656.55" x2="415.88" y2="618.22" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="415.88" y1="618.22" x2="415.88" y2="281.78" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="415.88" y1="281.78" x2="454.20" y2="243.45" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="454.20" y1="243.45" x2="613.00" y2="243.45" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="613.00" y1="243.45" x2="651.33" y2="281.78" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="651.33" y1="281.78" x2="651.33" y2="618.22" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="651.33" y1="618.22" x2="613.00" y2="656.55" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="613.00" y1="656.55" x2="565.48" y2="656.55" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="565.48" y1="656.55" x2="554.60" y2="667.43" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="554.60" y1="667.43" x2="332.15" y2="667.43" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="332.15" y1="667.43" x2="315.15" y2="650.43" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="315.15" y1="650.43" x2="315.15" y2="428.41" stroke="#2dd4bf" stroke-width="7.14" stroke-linecap="round" opacity="0.45"/>
+  <line x1="282.00" y1="428.41" x2="301.55" y2="428.41" stroke="#2dd4bf" stroke-width="9.35" stroke-linecap="round" opacity="0.45"/>
+  <line x1="315.15" y1="385.23" x2="315.15" y2="639.55" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="315.15" y1="639.55" x2="332.15" y2="656.55" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="332.15" y1="656.55" x2="454.20" y2="656.55" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="454.20" y1="656.55" x2="415.88" y2="618.22" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="415.88" y1="618.22" x2="415.88" y2="281.78" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="415.88" y1="281.78" x2="454.20" y2="243.45" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="454.20" y1="243.45" x2="613.00" y2="243.45" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="613.00" y1="243.45" x2="651.33" y2="281.78" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="651.33" y1="281.78" x2="651.33" y2="618.22" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="651.33" y1="618.22" x2="613.00" y2="656.55" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="613.00" y1="656.55" x2="524.92" y2="656.55" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="524.92" y1="656.55" x2="514.04" y2="645.67" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="514.04" y1="645.67" x2="458.71" y2="645.67" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="458.71" y1="645.67" x2="426.75" y2="613.72" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="426.75" y1="613.72" x2="426.75" y2="286.28" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="426.75" y1="286.28" x2="458.71" y2="254.33" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="458.71" y1="254.33" x2="608.49" y2="254.33" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="608.49" y1="254.33" x2="640.44" y2="286.28" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="640.44" y1="286.28" x2="640.44" y2="613.72" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="640.44" y1="613.72" x2="608.49" y2="645.67" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="608.49" y1="645.67" x2="529.43" y2="645.67" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="529.43" y1="645.67" x2="518.55" y2="634.79" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="518.55" y1="634.79" x2="463.21" y2="634.79" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="463.21" y1="634.79" x2="437.63" y2="609.21" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="437.63" y1="609.21" x2="437.63" y2="290.79" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="437.63" y1="290.79" x2="463.21" y2="265.21" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="463.21" y1="265.21" x2="603.99" y2="265.21" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="603.99" y1="265.21" x2="629.57" y2="290.79" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="629.57" y1="290.79" x2="629.57" y2="609.21" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="629.57" y1="609.21" x2="603.99" y2="634.79" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="603.99" y1="634.79" x2="533.94" y2="634.79" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="533.94" y1="634.79" x2="523.06" y2="623.91" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="523.06" y1="623.91" x2="467.72" y2="623.91" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="467.72" y1="623.91" x2="448.51" y2="604.70" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="448.51" y1="604.70" x2="448.51" y2="295.30" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="448.51" y1="295.30" x2="467.72" y2="276.09" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="467.72" y1="276.09" x2="599.48" y2="276.09" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="599.48" y1="276.09" x2="618.68" y2="295.30" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="618.68" y1="295.30" x2="618.68" y2="604.70" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="618.68" y1="604.70" x2="599.48" y2="623.91" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="599.48" y1="623.91" x2="538.44" y2="623.91" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="538.44" y1="623.91" x2="527.56" y2="613.03" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="527.56" y1="613.03" x2="472.23" y2="613.03" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="472.23" y1="613.03" x2="459.39" y2="600.20" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="459.39" y1="600.20" x2="459.39" y2="299.80" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="459.39" y1="299.80" x2="472.23" y2="286.97" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="472.23" y1="286.97" x2="594.97" y2="286.97" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="594.97" y1="286.97" x2="607.81" y2="299.80" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="607.81" y1="299.80" x2="607.81" y2="600.20" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="607.81" y1="600.20" x2="594.97" y2="613.03" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="594.97" y1="613.03" x2="542.95" y2="613.03" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="542.95" y1="613.03" x2="532.07" y2="602.15" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="532.07" y1="602.15" x2="476.74" y2="602.15" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="476.74" y1="602.15" x2="470.27" y2="595.69" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="470.27" y1="595.69" x2="470.27" y2="304.31" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="470.27" y1="304.31" x2="476.74" y2="297.85" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="476.74" y1="297.85" x2="590.46" y2="297.85" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="590.46" y1="297.85" x2="596.92" y2="304.31" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="596.92" y1="304.31" x2="596.92" y2="595.69" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="596.92" y1="595.69" x2="590.46" y2="602.15" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="590.46" y1="602.15" x2="548.90" y2="602.15" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="548.90" y1="602.15" x2="533.60" y2="586.85" stroke="#f59e0b" stroke-width="7.14" stroke-linecap="round" opacity="0.92"/>
+  <line x1="282.00" y1="385.23" x2="315.15" y2="385.23" stroke="#f59e0b" stroke-width="9.35" stroke-linecap="round" opacity="0.92"/>
+  <rect x="480.05" y="326.75" width="107.10" height="246.50" fill="url(#hatch-slot)" stroke="#0f172a" stroke-width="1.6"/>
+  <rect x="333.00" y="326.75" width="73.10" height="246.50" fill="url(#hatch-slot)" stroke="#0f172a" stroke-width="1.6"/>
+  <rect x="661.10" y="326.75" width="73.10" height="246.50" fill="url(#hatch-slot)" stroke="#0f172a" stroke-width="1.6"/>
+  <rect x="344.05" y="340.35" width="379.10" height="219.30" fill="none" stroke="#ffffff" stroke-width="1.9" stroke-dasharray="7,4"/>
+  <line x1="480.05" y1="450.00" x2="587.15" y2="450.00" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="6,3"/>
+  <rect x="487.60" y="456.00" width="92" height="16" rx="3" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.9"/>
+  <text x="533.60" y="467.50" text-anchor="middle" font-size="9.0" font-weight="700" fill="#0369a1">FLIP AXIS (Y=14)</text>
+  <circle cx="533.60" cy="586.85" r="6.80" fill="#f59e0b" stroke="#78350f" stroke-width="1.2"/>
+  <circle cx="533.60" cy="586.85" r="3.40" fill="#0f172a"/>
+  <circle cx="533.60" cy="313.15" r="6.80" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="3,2"/>
+  <text x="533.60" y="303.15" text-anchor="middle" font-size="9.5" font-weight="700" fill="#bae6fd">Flipped Board 2 Via (−8.05)</text>
+  <text x="533.60" y="414.00" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Center Slot</text>
+  <text x="533.60" y="430.00" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">6.30 × 14.50</text>
+  <text x="369.55" y="454.00" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a" transform="rotate(-90 369.55 454.00)">4.30 × 14.50</text>
+  <text x="697.65" y="454.00" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a" transform="rotate(-90 697.65 454.00)">4.30 × 14.50</text>
+  <rect x="259.05" y="361.94" width="45.90" height="176.12" fill="none" stroke="#ffffff" stroke-width="1.3"/>
+  <rect x="268.40" y="371.63" width="27.20" height="27.20" fill="#fbbf24" stroke="#78350f" stroke-width="1.2"/>
+  <circle cx="282.00" cy="385.23" r="8.50" fill="#0f172a"/>
+  <circle cx="282.00" cy="428.41" r="13.60" fill="#fbbf24" stroke="#78350f" stroke-width="1.2"/>
+  <circle cx="282.00" cy="428.41" r="8.50" fill="#0f172a"/>
+  <circle cx="282.00" cy="471.59" r="15.30" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3,2"/>
+  <circle cx="282.00" cy="514.77" r="15.30" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3,2"/>
+<line x1="248.00" y1="210.00" x2="248.00" y2="159.00" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="758.00" y1="210.00" x2="758.00" y2="159.00" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="248.00" y1="164.00" x2="758.00" y2="164.00" stroke="#0f4c81" stroke-width="1.3" marker-start="url(#arr-0f4c81)" marker-end="url(#arr-0f4c81)"/>
+<rect x="397.60" y="146.00" width="210.80" height="17.00" rx="2.5" fill="#ffffff" fill-opacity="0.92"/>
+<text x="503.00" y="158.00" text-anchor="middle" font-size="13" font-weight="700" fill="#0f4c81">Outer PCB Width = 30.00 mm</text>
+<line x1="344.05" y1="338.35" x2="344.05" y2="185.00" stroke="#b45309" stroke-width="0.9" opacity="0.75"/>
+<line x1="723.15" y1="338.35" x2="723.15" y2="185.00" stroke="#b45309" stroke-width="0.9" opacity="0.75"/>
+<line x1="344.05" y1="190.00" x2="723.15" y2="190.00" stroke="#b45309" stroke-width="1.3" marker-start="url(#arr-b45309)" marker-end="url(#arr-b45309)"/>
+<rect x="433.00" y="173.50" width="201.20" height="15.50" rx="2.5" fill="#ffffff" fill-opacity="0.92"/>
+<text x="533.60" y="184.00" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b45309">EE22 Core Width A = 22.30 mm</text>
+<line x1="333.00" y1="575.25" x2="333.00" y2="717.00" stroke="#6d28d9" stroke-width="0.9" opacity="0.75"/>
+<line x1="734.20" y1="575.25" x2="734.20" y2="717.00" stroke="#6d28d9" stroke-width="0.9" opacity="0.75"/>
+<line x1="333.00" y1="712.00" x2="734.20" y2="712.00" stroke="#6d28d9" stroke-width="1.3" marker-start="url(#arr-6d28d9)" marker-end="url(#arr-6d28d9)"/>
+<rect x="429.55" y="715.50" width="208.10" height="15.50" rx="2.5" fill="#ffffff" fill-opacity="0.92"/>
+<text x="533.60" y="726.00" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6d28d9">3-Slot Milled Span = 23.60 mm</text>
+<line x1="248.00" y1="690.00" x2="248.00" y2="717.00" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="282.00" y1="516.77" x2="282.00" y2="717.00" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="248.00" y1="712.00" x2="282.00" y2="712.00" stroke="#0f4c81" stroke-width="1.3" marker-start="url(#arr-0f4c81)" marker-end="url(#arr-0f4c81)"/>
+<rect x="247.00" y="716.50" width="36.00" height="14.50" rx="2.5" fill="#ffffff" fill-opacity="0.92"/>
+<text x="265.00" y="726.00" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f4c81">2.00</text>
+<line x1="246.00" y1="212.00" x2="185.00" y2="212.00" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="246.00" y1="688.00" x2="185.00" y2="688.00" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="190.00" y1="212.00" x2="190.00" y2="688.00" stroke="#0f4c81" stroke-width="1.3" marker-start="url(#arr-0f4c81)" marker-end="url(#arr-0f4c81)"/>
+<text x="178.00" y="450.00" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f4c81" transform="rotate(-90 178.00 450.00)">Outer PCB Height = 28.00 mm</text>
+<line x1="280.00" y1="385.23" x2="219.00" y2="385.23" stroke="#047857" stroke-width="0.9" opacity="0.75"/>
+<line x1="280.00" y1="514.77" x2="219.00" y2="514.77" stroke="#047857" stroke-width="0.9" opacity="0.75"/>
+<line x1="224.00" y1="385.23" x2="224.00" y2="514.77" stroke="#047857" stroke-width="1.3" marker-start="url(#arr-047857)" marker-end="url(#arr-047857)"/>
+<text x="216.00" y="450.00" text-anchor="middle" font-size="10.8" font-weight="700" fill="#047857" transform="rotate(-90 216.00 450.00)">1×4 Header (7.62 mm)</text>
+<line x1="736.20" y1="326.75" x2="791.00" y2="326.75" stroke="#6d28d9" stroke-width="0.9" opacity="0.75"/>
+<line x1="736.20" y1="573.25" x2="791.00" y2="573.25" stroke="#6d28d9" stroke-width="0.9" opacity="0.75"/>
+<line x1="786.00" y1="326.75" x2="786.00" y2="573.25" stroke="#6d28d9" stroke-width="1.3" marker-start="url(#arr-6d28d9)" marker-end="url(#arr-6d28d9)"/>
+<text x="800.00" y="450.00" text-anchor="middle" font-size="11.5" font-weight="700" fill="#6d28d9" transform="rotate(-90 800.00 450.00)">Milled Slots = 14.50 mm</text>
+<line x1="725.15" y1="340.35" x2="837.00" y2="340.35" stroke="#b45309" stroke-width="0.9" opacity="0.75"/>
+<line x1="725.15" y1="559.65" x2="837.00" y2="559.65" stroke="#b45309" stroke-width="0.9" opacity="0.75"/>
+<line x1="832.00" y1="340.35" x2="832.00" y2="559.65" stroke="#b45309" stroke-width="1.3" marker-start="url(#arr-b45309)" marker-end="url(#arr-b45309)"/>
+<text x="846.00" y="450.00" text-anchor="middle" font-size="11.5" font-weight="700" fill="#b45309" transform="rotate(-90 846.00 450.00)">Core Depth C = 12.90 mm</text>
+  <rect x="30" y="357.23" width="122" height="44" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1.1"/>
+  <text x="91" y="374.23" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">Pins 1–2: Active PTH</text>
+  <text x="91" y="389.23" text-anchor="middle" font-size="9.5" fill="#78350f">1.60 pad / 1.00 drill</text>
+  <rect x="30" y="500.77" width="122" height="44" rx="4" fill="#f1f5f9" stroke="#64748b" stroke-width="1.1"/>
+  <text x="91" y="516.77" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">Pins 3–4: NPTH Pass</text>
+  <text x="91" y="531.77" text-anchor="middle" font-size="9.5" fill="#475569">Ø1.80 mm (0 copper)</text>
+  <rect x="36" y="758" width="868" height="32" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="50" y="778" font-size="11.2" font-weight="700" fill="#0f172a">Verified 2L Margins:</text>
+  <text x="180" y="778" font-size="11.2" fill="#047857" font-weight="600">• 420/220 µm tracks (1 oz)</text>
+  <text x="348" y="778" font-size="11.2" fill="#0f4c81" font-weight="600">• Cu-to-Slot = 0.365 mm</text>
+  <text x="515" y="778" font-size="11.2" fill="#6d28d9" font-weight="600">• 3/3 PTH AR ≥ 0.20 mm</text>
+  <text x="680" y="778" font-size="11.2" fill="#b45309" font-weight="600">• CNC Bit Ø 0.8–2.0 mm PASS</text>
+
+  <rect x="940" y="86" width="960" height="716" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="940" y="86" width="960" height="34" rx="8" fill="#e2e8f0"/><rect x="940" y="108" width="960" height="12" fill="#e2e8f0"/>
+  <text x="958" y="109" font-size="14" font-weight="700" fill="#0f172a">B. REVERSIBLE 2-BOARD STACK CROSS-SECTION INSIDE EE22/08/13 (PC95) FERRITE CORE</text>
+
+  <polygon points="1106.70,212.40 1508.10,212.40 1508.10,395.00 1446.90,395.00 1446.90,276.20 1357.80,276.20 1357.80,395.00 1257.00,395.00 1257.00,276.20 1167.90,276.20 1167.90,395.00 1106.70,395.00" fill="url(#hatch-ferrite)" stroke="#0f172a" stroke-width="1.8"/>
+  <polygon points="1106.70,577.60 1508.10,577.60 1508.10,395.00 1446.90,395.00 1446.90,513.80 1357.80,513.80 1357.80,395.00 1257.00,395.00 1257.00,513.80 1167.90,513.80 1167.90,395.00 1106.70,395.00" fill="url(#hatch-ferrite)" stroke="#0f172a" stroke-width="1.8"/>
+  <text x="1307.40" y="248.30" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">EE22/08/13 Top E-Core (PC95)</text>
+  <text x="1307.40" y="549.70" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">EE22/08/13 Bottom E-Core (PC95)</text>
+  <rect x="1005.00" y="396.10" width="90.00" height="17.60" fill="#059669" stroke="#022c22" stroke-width="1.4"/>
+  <rect x="1005.00" y="376.30" width="90.00" height="17.60" fill="#0284c7" stroke="#0c4a6e" stroke-width="1.4"/>
+  <rect x="1172.40" y="396.10" width="78.30" height="17.60" fill="#059669" stroke="#022c22" stroke-width="1.4"/>
+  <rect x="1172.40" y="376.30" width="78.30" height="17.60" fill="#0284c7" stroke="#0c4a6e" stroke-width="1.4"/>
+  <rect x="1364.10" y="396.10" width="78.30" height="17.60" fill="#059669" stroke="#022c22" stroke-width="1.4"/>
+  <rect x="1364.10" y="376.30" width="78.30" height="17.60" fill="#0284c7" stroke="#0c4a6e" stroke-width="1.4"/>
+  <rect x="1519.80" y="396.10" width="25.20" height="17.60" fill="#059669" stroke="#022c22" stroke-width="1.4"/>
+  <rect x="1519.80" y="376.30" width="25.20" height="17.60" fill="#0284c7" stroke="#0c4a6e" stroke-width="1.4"/>
+  <rect x="1080.60" y="393.90" width="14.40" height="2.20" fill="#f59e0b" stroke="#b45309" stroke-width="0.6"/>
+  <rect x="1172.40" y="393.90" width="78.30" height="2.20" fill="#f59e0b" stroke="#b45309" stroke-width="0.6"/>
+  <rect x="1364.10" y="393.90" width="78.30" height="2.20" fill="#f59e0b" stroke="#b45309" stroke-width="0.6"/>
+  <rect x="1519.80" y="393.90" width="18.00" height="2.20" fill="#f59e0b" stroke="#b45309" stroke-width="0.6"/>
+  <rect x="1035.24" y="333.40" width="11.52" height="242.00" fill="#eab308" stroke="#854d0e" stroke-width="1.1"/>
+  <rect x="1018.14" y="413.70" width="45.72" height="55.88" rx="1.5" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+  <polygon points="1026.60,376.30 1035.24,360.90 1046.76,360.90 1055.40,376.30" fill="#cbd5e1" stroke="#475569" stroke-width="1.0"/>
+  <text x="1041.00" y="316.90" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0369a1">Solder Pins 3–4</text>
+  <text x="1041.00" y="330.10" text-anchor="middle" font-size="9.5" fill="#0c4a6e">(Board 2 SEC)</text>
+  <text x="1041.00" y="490.70" text-anchor="middle" font-size="10.5" font-weight="700" fill="#047857">1×4 Male Header</text>
+  <text x="1041.00" y="503.90" text-anchor="middle" font-size="9.5" fill="#065f46">(Pins 1–2 → Board 1 PRI)</text>
+<line x1="1547.00" y1="376.30" x2="1564.40" y2="376.30" stroke="#047857" stroke-width="0.9" opacity="0.75"/>
+<line x1="1547.00" y1="413.70" x2="1564.40" y2="413.70" stroke="#047857" stroke-width="0.9" opacity="0.75"/>
+<line x1="1559.40" y1="376.30" x2="1559.40" y2="413.70" stroke="#047857" stroke-width="1.3" marker-start="url(#arr-047857)" marker-end="url(#arr-047857)"/>
+<text x="1567.40" y="399.00" text-anchor="start" font-size="11" font-weight="700" fill="#047857">Stack = 1.70 mm</text>
+<line x1="1448.90" y1="276.20" x2="1682.40" y2="276.20" stroke="#6d28d9" stroke-width="0.9" opacity="0.75"/>
+<line x1="1448.90" y1="513.80" x2="1682.40" y2="513.80" stroke="#6d28d9" stroke-width="0.9" opacity="0.75"/>
+<line x1="1677.40" y1="276.20" x2="1677.40" y2="513.80" stroke="#6d28d9" stroke-width="1.3" marker-start="url(#arr-6d28d9)" marker-end="url(#arr-6d28d9)"/>
+<text x="1685.40" y="399.00" text-anchor="start" font-size="11" font-weight="700" fill="#6d28d9">Window = 10.80 mm</text>
+<line x1="1510.10" y1="212.40" x2="1832.40" y2="212.40" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="1510.10" y1="577.60" x2="1832.40" y2="577.60" stroke="#0f4c81" stroke-width="0.9" opacity="0.75"/>
+<line x1="1827.40" y1="212.40" x2="1827.40" y2="577.60" stroke="#0f4c81" stroke-width="1.3" marker-start="url(#arr-0f4c81)" marker-end="url(#arr-0f4c81)"/>
+<text x="1843.40" y="395.00" text-anchor="middle" font-size="12" font-weight="700" fill="#0f4c81" transform="rotate(-90 1843.40 395.00)">Mated Core = 16.60 mm</text>
+  <rect x="960" y="650" width="920" height="136" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="978" y="674" font-size="12.5" font-weight="700" fill="#0f172a">4-STEP ZERO-JUMPER ASSEMBLY (USES ONLY 1 SINGLE 2-LAYER PCB DESIGN!):</text>
+  <text x="978" y="696" font-size="11.5" fill="#1e293b"><tspan font-weight="700" fill="#047857">Step 1 (Board 1 · Bottom = PRIMARY):</tspan> Insert 1×4 male header (Pins 1–4); solder <tspan font-weight="700">Pins 1 &amp; 2</tspan> flush on Board 1 top (Pins 3–4 float inside Ø1.80 mm NPTH).</text>
+  <text x="978" y="718" font-size="11.5" fill="#1e293b"><tspan font-weight="700" fill="#b45309">Step 2 (Insulation Barrier):</tspan> Lay one <tspan font-weight="700">0.10 mm Kapton sheet</tspan> (&gt;4 kV dielectric) over Board 1 winding region (clear of left 1×4 header strip).</text>
+  <text x="978" y="740" font-size="11.5" fill="#1e293b"><tspan font-weight="700" fill="#0284c7">Step 3 (Board 2 · Top = SECONDARY):</tspan> Take an <tspan font-weight="700">IDENTICAL PCB</tspan>, flip it <tspan font-weight="700">180° top-to-bottom</tspan> (B.Cu UP — reads "SEC (TOP)"), slide onto Pins 1–4, solder <tspan font-weight="700">Pins 3 &amp; 4</tspan>.</text>
+  <text x="978" y="762" font-size="11.5" fill="#1e293b"><tspan font-weight="700" fill="#334155">Step 4 (Core Fit):</tspan> Slide the 2× <tspan font-weight="700">EE22/08/13 (PC95)</tspan> E-halves through the 3 slots (9.10 mm spare height inside 10.80 mm window!) and tape/clamp outer legs.</text>
+
+  <rect x="20" y="818" width="1880" height="302" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="20" y="818" width="1880" height="34" rx="8" fill="#e2e8f0"/><rect x="20" y="840" width="1880" height="12" fill="#e2e8f0"/>
+  <text x="38" y="841" font-size="14" font-weight="700" fill="#0f172a">C. SYSTEM INTEGRATION — Mating 3× EE22 2-Layer 1:1 Modules to mosfet_gate_driver (a00c78f, J14–J16) &amp; Verified Performance</text>
+
+  <!-- Block 1: 12V H-Bridge + DC-Block -->
+  <rect x="44" y="876" width="380" height="218" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+  <text x="234" y="900" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">1. EXTERNAL PRIMARY AC DRIVER (12 V)</text>
+  <text x="64" y="926" font-size="11.8" fill="#1e293b">• Topology: <tspan font-weight="700">12 V Full-Bridge (H-Bridge)</tspan> @ <tspan font-weight="700">150–250 kHz</tspan></text>
+  <text x="64" y="948" font-size="11.8" fill="#1e293b">  (e.g., TC4427 / DRV8837-12V / 3S pack 11.1–12.6 V)</text>
+  <text x="64" y="974" font-size="11.8" fill="#b91c1c" font-weight="700">• Mandatory Series Components on Trans_in1:</text>
+  <text x="64" y="996" font-size="11.8" fill="#1e293b">  – <tspan font-weight="700">10 µF, 25 V X7R</tspan> DC-blocking cap (zero flux walk!)</text>
+  <text x="64" y="1018" font-size="11.8" fill="#1e293b">  – <tspan font-weight="700">4.7 Ω (0.25 W)</tspan> damping resistor (caps 3-ch cold-start</text>
+  <text x="64" y="1038" font-size="11.8" fill="#1e293b">    inrush &lt; 2.2 A; only 0.16 V drop at steady 35 mA RMS)</text>
+  <text x="64" y="1068" font-size="11.2" font-weight="700" fill="#92400e">Feeds J1.10 (Trans_in1) &amp; J1.11 (Trans_in2) on host PCB</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="424" y1="985" x2="482" y2="985" stroke="#0f4c81" stroke-width="2.6" marker-end="url(#arr-0f4c81)"/>
+
+  <!-- Block 2: 3x EE22 2L Modules -->
+  <rect x="490" y="876" width="465" height="218" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/>
+  <text x="722.5" y="900" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">2. 3× EE22/08/13 (PC95) 2-LAYER 1:1 MODULES</text>
+  <text x="510" y="926" font-size="11.8" fill="#1e293b">• Order <tspan font-weight="700">10 pcs</tspan> of 1 single 2L Gerber → <tspan font-weight="700">5 transformers</tspan> (3+2 spares)</text>
+  <text x="510" y="948" font-size="11.8" fill="#1e293b">• Module envelope: <tspan font-weight="700">30.0 × 28.0 × 16.6 mm</tspan> (3× channels separate)</text>
+  <text x="510" y="974" font-size="11.8" font-weight="700" fill="#065f46">Exact 1×4 Pin-for-Pin Match to Host J14 / J15 / J16:</text>
+  <text x="510" y="996" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">  Pin 1 (PTH, Board 1) → Trans_in1 (● Dot, Primary)</text>
+  <text x="510" y="1016" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">  Pin 2 (PTH, Board 1) → Trans_in2 (Primary)</text>
+  <text x="510" y="1036" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">  Pin 3 (PTH, Board 2) → Trans_A#  (● Dot, Isolated Sec)</text>
+  <text x="510" y="1056" font-size="11.5" font-family="Consolas, monospace" fill="#0f172a">  Pin 4 (PTH, Board 2) → Trans_B#  (Isolated Sec)</text>
+  <text x="510" y="1080" font-size="11.2" fill="#047857" font-weight="600">Connect each module to J14 / J15 / J16 via short 4-pin 2.54 mm jumper cable</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="955" y1="985" x2="1013" y2="985" stroke="#0f4c81" stroke-width="2.6" marker-end="url(#arr-0f4c81)"/>
+
+  <!-- Block 3: Host mosfet_gate_driver + Verified SPICE -->
+  <rect x="1021" y="876" width="855" height="218" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+  <text x="1448.5" y="900" text-anchor="middle" font-size="13" font-weight="700" fill="#0c4a6e">3. VERIFIED AS-ROUTED ngspice-46 PERFORMANCE ON mosfet_gate_driver (a00c78f, 1N5819 + BC547/557)</text>
+  <text x="1042" y="928" font-size="11.8" fill="#1e293b">• <tspan font-weight="700">As-Routed Winding Specs:</tspan> 12T CW : 12T CW (1:1), R_pri = R_sec = <tspan font-weight="700">0.925 Ω @ 25°C / 1.050 Ω @ 60°C</tspan>, Lm = <tspan font-weight="700">720 µH</tspan> nom, Llk = <tspan font-weight="700">1.57 µH</tspan>, Cww = <tspan font-weight="700">42.9 pF</tspan></text>
+  <text x="1042" y="952" font-size="11.8" fill="#1e293b">• <tspan font-weight="700">8-Corner Sweep (11.1–12.6 V, 50–250 kHz, ±25% AL):</tspan> V_rect = <tspan font-weight="700">10.62–12.47 V</tspan> → <tspan font-weight="700">V_GS = 9.92–11.75 V</tspan> (B_pk = 13.9–68.2 mT &lt;&lt; 390 mT B_sat)</text>
+  <text x="1042" y="976" font-size="11.8" fill="#1e293b">• <tspan font-weight="700">Single-Channel Efficiency @ 200 kHz:</tspan> <tspan font-weight="700" fill="#047857">61.8%</tspan> at 1.2 mA hold · <tspan font-weight="700" fill="#047857">92.6–92.8%</tspan> at 10 mA heavy burst · UF4007 fallback = <tspan font-weight="700">9.16 V V_GS</tspan></text>
+  <text x="1042" y="1000" font-size="11.8" fill="#1e293b">• <tspan font-weight="700">3-Channel End-to-End @ 12 V, 200 kHz:</tspan> <tspan font-weight="700" fill="#047857">&gt; 80% full system efficiency</tspan>, <tspan font-weight="700">~90 ns</tspan> gate rise/fall (1960 pF IRF540N), <tspan font-weight="700">ΔT ≈ 0.19 °C</tspan> (4.9 mW loss!)</text>
+  <rect x="1042" y="1020" width="814" height="58" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2"/>
+  <text x="1056" y="1040" font-size="11.5" font-weight="700" fill="#991b1b">HOST BOARD CHECKLIST BEFORE FABBING mosfet_gate_driver (a00c78f):</text>
+  <text x="1056" y="1058" font-size="11.2" fill="#7f1d1d">1. Fix short circuit (/P3 shorted to Net-(Q5-B)) + 0.0675 mm copper clearance error   2. Populate D1–D12 with fast Schottky (1N5819 / SB140), never 1N4007</text>
+  <text x="1056" y="1073" font-size="11.2" fill="#7f1d1d">3. Optional for &gt;60 V battery packs: change J14–J16 to 1×5 with Pin 3 empty (triples Pri–Sec header creepage from 0.84 mm to 3.38 mm)</text>
+
+</svg>

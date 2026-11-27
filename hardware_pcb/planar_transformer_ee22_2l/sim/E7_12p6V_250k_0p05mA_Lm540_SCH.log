@@ -1,0 +1,14 @@
+stdout Note: No compatibility mode selected!
+stdout Circuit: * as-routed ee22/08/13 (pc95) 2-layer reversible 1:1 (12t:12t) — ngspice-46
+stdout Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+stdout Using SPARSE 1.3 as Direct Linear Solver
+stdout Operating point simulation skipped by 'uic',
+stdout now using transient initial conditions.
+ Reference value :  5.52274e-04
+stdout No. of Data Rows : 51523
+stdout vrect_min           =  1.24526e+01 at=  7.61936e-04
+stdout vrect_avg           =  1.24587e+01 from=  7.60000e-04 to=  8.00000e-04
+stdout vrect_max           =  1.24690e+01 at=  7.98023e-04
+stdout ip_pk               =  5.91450e-02 at=  7.65977e-04
+stdout p_in                =  1.93838e-02 from=  7.60000e-04 to=  8.00000e-04
+stdout p_out               =  6.22934e-04 from=  7.60000e-04 to=  8.00000e-04
