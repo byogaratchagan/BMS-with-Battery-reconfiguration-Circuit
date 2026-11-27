@@ -1,0 +1,48 @@
+* As-Routed EE22/08/13 (PC95) 2-Layer Reversible 1:1 (12T:12T) — ngspice-46
+* Case: E6_12p0V_50k_1p2mA_Lm540_SCH | Vin=12.00V, fsw=50kHz, Iload=1.20mA, AL=3750nH/T2 (Lm=540.0uH), Diode=D_1N5819
+* As-routed 60C params: R_ac=1.050ohm (Fr=1.0000), Llk=1.57uH, Cww=42.9pF, Bpk=68.2mT, Pcore=19.03mW
+.options reltol=5e-4 abstol=1e-10 vntol=1e-5 method=gear
+.model D_1N5819 D(IS=2.5e-6 N=1.08 RS=0.25 CJO=110p TT=5n BV=40 IBV=1m)
+.model D_UF4007 D(IS=2.0e-9 N=1.75 RS=0.35 CJO=17p TT=50n BV=1000 IBV=10u)
+
+Vleg1 leg1_i 0 PULSE(0 12.0000 0 2.500e-08 2.500e-08 9.895000e-06 2.000000e-05)
+Vleg2 leg2_i 0 PULSE(0 12.0000 1.000000e-05 2.500e-08 2.500e-08 9.895000e-06 2.000000e-05)
+Rdrv1 leg1_i p1_in 0.25
+Rdrv2 leg2_i p2_in 0.25
+
+Rpri p1_in p1_r 1.0500
+Llk  p1_r  p1_m 1.5742e-06
+Lp   p1_m  p2_in 5.4000e-04
+Rcore p1_m p2_in 7506.8
+
+Ls   s1_m  s2_m 5.4000e-04
+Rsec s1_m  ac1  1.0500
+Rs2  s2_m  ac2  1m
+K1   Lp Ls 0.999999
+
+Cww1 p1_in ac1 2.143e-11
+Cww2 p2_in ac2 2.143e-11
+Riso gnd_iso 0 1G
+
+D1 ac1 vrect D_1N5819
+D2 ac2 vrect D_1N5819
+D3 gnd_iso ac1 D_1N5819
+D4 gnd_iso ac2 D_1N5819
+Cflt vrect cflt_e 4.7u IC=11.350
+Resr cflt_e gnd_iso 0.15
+Iload vrect gnd_iso 1.200000e-03
+
+.control
+tran 5.0000e-07 4.0000e-03 0 5.0000e-07 uic
+let vrect_diff = v(vrect) - v(gnd_iso)
+let ip_abs = abs(i(Vleg1))
+let pin_v = -(v(leg1_i)*i(Vleg1) + v(leg2_i)*i(Vleg2))
+let pout_v = vrect_diff * 1.200000e-03
+meas tran vrect_min min vrect_diff from=3.8000e-03 to=4.0000e-03
+meas tran vrect_avg avg vrect_diff from=3.8000e-03 to=4.0000e-03
+meas tran vrect_max max vrect_diff from=3.8000e-03 to=4.0000e-03
+meas tran ip_pk max ip_abs from=3.8000e-03 to=4.0000e-03
+meas tran p_in avg pin_v from=3.8000e-03 to=4.0000e-03
+meas tran p_out avg pout_v from=3.8000e-03 to=4.0000e-03
+.endc
+.end
